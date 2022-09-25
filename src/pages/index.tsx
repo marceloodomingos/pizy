@@ -24,7 +24,7 @@ const Home: NextPage = () => {
             <h1>Sua vida mais facilitada.</h1>
             <p>Estamos aqui para facilitar sua vida. De todas as formas.</p>
 
-            <a href="/">Visitar projetos</a>
+            <a href="/projects">Visitar projetos</a>
           </div>
         </Presentation>
       </main>

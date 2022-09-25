@@ -30,7 +30,7 @@ export const GlobalStyles = createGlobalStyle`
 
     width: 100%;
     max-width: 1200px;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 100px);
 
     margin: 0 auto;
 

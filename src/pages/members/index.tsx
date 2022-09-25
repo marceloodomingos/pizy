@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Home: NextPage = ({ membersList }: any) => {
+const Members: NextPage = ({ membersList }: any) => {
   const [membersData, setMembersData] = useState<any | null>([]);
 
   useEffect(() => {
@@ -111,4 +111,4 @@ const Home: NextPage = ({ membersList }: any) => {
   );
 };
 
-export default Home;
+export default Members;

@@ -7,8 +7,9 @@ import Header from "~/components/Header";
 import listLinkProjects from "~/data/projects.json";
 import { ProjectsList } from "~/styles/pages/projects";
 
-const Home: NextPage = () => {
+const Projects: NextPage = () => {
   const [projects, setProjects] = useState([]);
+  const [projectsScreenshots, setProjectsScreenshots] = useState([]);
 
   useEffect(() => {
     const getMembersBio = async () => {
@@ -34,6 +35,16 @@ const Home: NextPage = () => {
 
       const listProjectsResults = await Promise.all(listProjects);
       setProjects(listProjectsResults);
+
+      // const getScreenshot = async () => {
+      //   const projectScreenshot = await fetch(
+      //     `https://api.apiflash.com/v1/urltoimage?access_key=fec1087a88fe4d3992c2af2bab16a066&url=${listProjectsResults[0].homepage}`
+      //   );
+
+      //   setProjectsScreenshots((prev) => [...prev, projectScreenshot.url]);
+      // };
+
+      // getScreenshot();
     };
 
     getMembersBio();
@@ -54,24 +65,23 @@ const Home: NextPage = () => {
           <h1>Projetos PIZY</h1>
           {projects && (
             <ul>
-              {projects
-                .sort((a, b) => a - b)
-                .map((project) => {
-                  return (
-                    <>
-                      {projects && (
-                        <a
-                          key={project.name}
-                          href={project.homepage}
-                          target="_blank"
-                        >
-                          <span>{project.name}</span>
-                          <p>{project.description}</p>
-                        </a>
-                      )}
-                    </>
-                  );
-                })}
+              {projects.map((project, index) => {
+                return (
+                  <>
+                    {projects && (
+                      <a
+                        key={project.name}
+                        href={project.homepage}
+                        target="_blank"
+                      >
+                        {/* <img src={projectsScreenshots[index]} /> */}
+                        <span>{project.name}</span>
+                        <p>{project.description}</p>
+                      </a>
+                    )}
+                  </>
+                );
+              })}
             </ul>
           )}
         </ProjectsList>
@@ -80,4 +90,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Projects;

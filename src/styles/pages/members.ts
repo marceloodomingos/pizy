@@ -61,8 +61,13 @@ export const MemberList = styled.div`
       transition: var(--transition);
 
       > img {
+        min-width: 100px;
         width: 100%;
         max-width: 100px;
+
+        min-height: 100px;
+        height: 100%;
+        max-height: 100px;
 
         border-radius: 50%;
         object-fit: cover;
@@ -142,7 +147,10 @@ export const MemberList = styled.div`
 
       @media (min-width: 768px) {
         border-left: 0 solid transparent;
-        animation: ${loading} 1s ease;
+
+        > img {
+          animation: ${loading} 1s ease;
+        }
 
         &:hover {
           border-left: 0.5rem solid var(--brand-yellow);
@@ -160,11 +168,14 @@ export const MemberList = styled.div`
         > img {
           width: 100vw;
           max-width: unset;
+          min-height: 35vw;
           height: 100%;
           max-height: 35vw;
 
           object-fit: cover;
           border-radius: unset;
+
+          background: var(--brand-yellow);
 
           /* border-bottom: 0.25rem solid var(--brand-yellow); */
           margin-top: -1.5rem;

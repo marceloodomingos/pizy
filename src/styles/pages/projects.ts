@@ -20,20 +20,22 @@ export const ProjectsList = styled.div`
 
   > ul {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
 
     width: 100%;
+    gap: 1rem;
 
     > a {
       display: flex;
+      flex: 1 1 500px;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
 
       width: 100%;
-      gap: 2rem;
+      gap: 1rem;
 
       padding: 1.5rem;
       border-radius: 1rem;
@@ -69,6 +71,7 @@ export const ProjectsList = styled.div`
         font-size: 1.5rem;
 
         gap: 0.5rem;
+        width: 100%;
 
         > svg {
           width: 1rem;
@@ -83,19 +86,32 @@ export const ProjectsList = styled.div`
         padding: 0.45rem;
       }
 
-      &:nth-child(even) {
-        background: #fdfae2;
-      }
-
-      &:nth-child(odd) {
-        background: #fdfcec;
-      }
-
       @media (min-width: 768px) {
-        border-left: 0 solid transparent;
+        background: #fdfcec;
+        font-weight: 300;
+
+        > span {
+          font-size: 1.75rem;
+          font-weight: 900;
+        }
+
+        &:nth-child(odd) {
+          border-left: 0.5rem solid var(--brand-yellow);
+        }
+
+        &:nth-child(even) {
+          justify-content: flex-end;
+          text-align: right;
+
+          border-right: 0.5rem solid var(--brand-yellow);
+
+          > span {
+            justify-content: flex-end;
+          }
+        }
 
         &:hover {
-          border-left: 0.5rem solid var(--brand-yellow);
+          background: #fdfae2;
         }
       }
 
@@ -106,6 +122,14 @@ export const ProjectsList = styled.div`
         flex-direction: column;
 
         overflow: hidden;
+
+        &:nth-child(even) {
+          background: #fdfae2;
+        }
+
+        &:nth-child(odd) {
+          background: #fdfcec;
+        }
 
         > img {
           width: 100vw;
