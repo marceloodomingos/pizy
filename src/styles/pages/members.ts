@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const loading = keyframes`
+  0% {
+    filter: brightness(50%) blur(5px);
+  }
+  100% {
+    filter: unset;
+  }
+`;
 
 export const MemberList = styled.div`
   display: flex;
@@ -51,6 +60,8 @@ export const MemberList = styled.div`
 
         pointer-events: none;
         user-select: none;
+
+        animation: ${loading} 1s ease;
       }
 
       .info {
@@ -101,7 +112,7 @@ export const MemberList = styled.div`
           text-align: left;
           text-transform: capitalize;
 
-          margin-top: 1rem;
+          margin-top: 0.5rem;
         }
       }
 
