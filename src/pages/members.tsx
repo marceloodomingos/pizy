@@ -50,7 +50,7 @@ const Home: NextPage = ({ membersList }: any) => {
     <>
       <Head>
         <title>
-          PIZY · Estamos aqui para facilitar sua vida. De todas as formas.
+          PIZY · Todos os responsáveis pela PIZY e por sua experiência.
         </title>
       </Head>
 

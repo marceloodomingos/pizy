@@ -1,24 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-const loading = keyframes`
-  0% {
-    filter: brightness(50%) blur(5px);
-  }
-  100% {
-    filter: unset;
-  }
-`;
-
-const loadingMobile = keyframes`
-  0% {
-    filter: brightness(10%) blur(5px);
-  }
-  100% {
-    filter: brightness(50%);
-  }
-`;
-
-export const MemberList = styled.div`
+export const ProjectsList = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,8 +28,9 @@ export const MemberList = styled.div`
 
     > a {
       display: flex;
-      justify-content: flex-start;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
 
       width: 100%;
       gap: 2rem;
@@ -55,10 +38,13 @@ export const MemberList = styled.div`
       padding: 1.5rem;
       border-radius: 1rem;
 
+      text-align: left;
       text-decoration: none;
-      cursor: pointer;
 
+      color: var(--black);
       transition: var(--transition);
+
+      cursor: pointer;
 
       > img {
         width: 100%;
@@ -73,55 +59,20 @@ export const MemberList = styled.div`
         background: var(--brand-yellow);
       }
 
-      .info {
+      > span {
         display: flex;
-        flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: center;
 
-        width: 100%;
-        height: 100%;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.5rem;
 
-        > a {
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
+        gap: 0.5rem;
 
-          color: var(--black);
-
-          text-decoration: none;
-          gap: 1rem;
-
-          > span {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-
-            text-transform: lowercase;
-            font-weight: bold;
-            font-size: 1.5rem;
-
-            gap: 0.5rem;
-
-            > svg {
-              width: 1rem;
-              height: 1rem;
-            }
-          }
-
-          > p {
-            opacity: 0.5;
-          }
-        }
-
-        > blockquote {
-          width: 100%;
-          max-width: 80%;
-
-          text-align: left;
-          text-transform: capitalize;
-
-          margin-top: 0.5rem;
+        > svg {
+          width: 1rem;
+          height: 1rem;
         }
       }
 
@@ -142,7 +93,6 @@ export const MemberList = styled.div`
 
       @media (min-width: 768px) {
         border-left: 0 solid transparent;
-        animation: ${loading} 1s ease;
 
         &:hover {
           border-left: 0.5rem solid var(--brand-yellow);
@@ -169,8 +119,6 @@ export const MemberList = styled.div`
           /* border-bottom: 0.25rem solid var(--brand-yellow); */
           margin-top: -1.5rem;
           filter: brightness(50%);
-
-          animation: ${loadingMobile} 1s ease;
         }
 
         .info {
@@ -195,5 +143,3 @@ export const MemberList = styled.div`
     }
   }
 `;
-
-export const WantJoin = styled.div``;

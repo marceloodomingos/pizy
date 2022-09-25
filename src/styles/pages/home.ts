@@ -63,7 +63,7 @@ export const Presentation = styled.div`
 
     object-fit: cover;
 
-    filter: drop-shadow(10px 10px 150px var(--english-violet));
+    /* filter: drop-shadow(10px 10px 150px var(--english-violet)); */
 
     pointer-events: none;
     user-select: none;
