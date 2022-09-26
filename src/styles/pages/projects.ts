@@ -124,6 +124,9 @@ export const ProjectsList = styled.div`
             border: 0.1rem solid var(--brand-yellow);
             border-radius: 50%;
 
+            pointer-events: none;
+            user-select: none;
+
             & + img {
               margin-left: -0.75rem;
             }
