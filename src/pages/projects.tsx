@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import Header from "~/components/Header";
+import LoadingLemon from "~/components/Loaders/LoadingLemon";
 
 import listLinkProjects from "~/data/projects.json";
 import { ProjectsList } from "~/styles/pages/projects";
@@ -20,6 +21,7 @@ const Projects: NextPage = () => {
 
         return {
           url: project.url,
+          authors: project.authors,
           name: response.data.name,
           description: response.data.description,
           homepage: response.data.homepage,
@@ -63,9 +65,9 @@ const Projects: NextPage = () => {
       <main>
         <ProjectsList>
           <h1>Projetos PIZY</h1>
-          {projects && (
+          {projects ? (
             <ul>
-              {projects.map((project, index) => {
+              {projects.map((project) => {
                 return (
                   <>
                     {projects && (
@@ -75,14 +77,40 @@ const Projects: NextPage = () => {
                         target="_blank"
                       >
                         {/* <img src={projectsScreenshots[index]} /> */}
-                        <span>{project.name}</span>
-                        <p>{project.description}</p>
+
+                        <div className="info">
+                          <h1>{project.name}</h1>
+                          <p>{project.description}</p>
+                        </div>
+
+                        {project.authors && (
+                          <>
+                            <div className="authors">
+                              <span>Desenvolvido por</span>
+                              <ul>
+                                {project.authors.map((user) => {
+                                  return (
+                                    <img
+                                      key={user}
+                                      src={`https://github.com/${user}.png`}
+                                      alt={`${user}`}
+                                    />
+                                  );
+                                })}
+                              </ul>
+                            </div>
+                          </>
+                        )}
+
+                        <button>Visitar projeto</button>
                       </a>
                     )}
                   </>
                 );
               })}
             </ul>
+          ) : (
+            <LoadingLemon />
           )}
         </ProjectsList>
       </main>

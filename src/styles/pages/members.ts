@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 const loading = keyframes`
   0% {
-    filter: brightness(50%) blur(5px);
+    filter: brightness(1500%) blur(10px);
   }
   100% {
     filter: unset;
@@ -11,7 +11,7 @@ const loading = keyframes`
 
 const loadingMobile = keyframes`
   0% {
-    filter: brightness(10%) blur(5px);
+    filter: brightness(1500%) blur(10px);
   }
   100% {
     filter: brightness(50%);
@@ -43,6 +43,7 @@ export const MemberList = styled.div`
     align-items: center;
 
     width: 100%;
+    gap: 1rem;
 
     > a {
       display: flex;
@@ -87,6 +88,8 @@ export const MemberList = styled.div`
         width: 100%;
         height: 100%;
 
+        color: var(--black);
+
         > a {
           display: flex;
           justify-content: flex-start;
@@ -115,6 +118,7 @@ export const MemberList = styled.div`
           }
 
           > p {
+            text-transform: capitalize;
             opacity: 0.5;
           }
         }
@@ -134,7 +138,12 @@ export const MemberList = styled.div`
         width: 2rem;
         height: 100%;
 
+        opacity: 0.5;
+
         padding: 0.45rem;
+        color: var(--black);
+
+        transition: var(--transition);
       }
 
       &:nth-child(even) {
@@ -149,11 +158,15 @@ export const MemberList = styled.div`
         border-left: 0 solid transparent;
 
         > img {
-          animation: ${loading} 1s ease;
+          animation: ${loading} 1.5s;
         }
 
         &:hover {
           border-left: 0.5rem solid var(--brand-yellow);
+
+          > svg {
+            opacity: 1;
+          }
         }
       }
 
@@ -168,9 +181,9 @@ export const MemberList = styled.div`
         > img {
           width: 100vw;
           max-width: unset;
-          min-height: 35vw;
+          min-height: 50vw;
           height: 100%;
-          max-height: 35vw;
+          max-height: 50vw;
 
           object-fit: cover;
           border-radius: unset;
@@ -181,7 +194,7 @@ export const MemberList = styled.div`
           margin-top: -1.5rem;
           filter: brightness(50%);
 
-          animation: ${loadingMobile} 1s ease;
+          animation: ${loadingMobile} 1.5s;
         }
 
         .info {

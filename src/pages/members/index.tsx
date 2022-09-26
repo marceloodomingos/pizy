@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowSquareOut } from "phosphor-react";
 import { useEffect, useState } from "react";
 import Header from "~/components/Header";
+import LoadingLemon from "~/components/Loaders/LoadingLemon";
 import { MemberList, WantJoin } from "~/styles/pages/members";
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -59,7 +60,7 @@ const Members: NextPage = ({ membersList }: any) => {
       <main>
         <MemberList>
           <h1>Grupo PIZY</h1>
-          {membersList && membersData && (
+          {membersList && membersData ? (
             <ul>
               {membersList
                 .sort((a, b) => a.id - b.id)
@@ -91,7 +92,7 @@ const Members: NextPage = ({ membersList }: any) => {
                                 </svg>
                                 {user.login}
                               </span>
-                              <p>{userData?.name}</p>
+                              <p>{userData?.name.toLowerCase()}</p>
                             </a>
 
                             <blockquote>{userData?.bio}</blockquote>
@@ -103,6 +104,8 @@ const Members: NextPage = ({ membersList }: any) => {
                   );
                 })}
             </ul>
+          ) : (
+            <LoadingLemon />
           )}
         </MemberList>
         {/* <WantJoin></WantJoin> */}
