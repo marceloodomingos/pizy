@@ -6,8 +6,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-popover": "1.0.0",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
+    "firebase": "^9.10.0",
     "next": "^12.3.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",

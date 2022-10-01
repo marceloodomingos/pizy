@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background: var(--background);
     color: var(--black);
-    overflow-x: hidden;
+    overflow: hidden auto;
 
     &.open {
       height: 100vh;
@@ -22,14 +22,14 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  main {
+  /* main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     min-height: calc(100vh - 100px);
 
     margin: 0 auto;
@@ -42,7 +42,7 @@ export const GlobalStyles = createGlobalStyle`
           padding: 1rem;
         }
     }
-  }
+  } */
 
   html {
     scroll-behavior: smooth;
@@ -56,16 +56,16 @@ export const GlobalStyles = createGlobalStyle`
     &::-webkit-scrollbar {
       width: .5rem;
     }
-    &::-webkit-scrollbar-track {
+    /* &::-webkit-scrollbar-track {
       background: var(--raisin-black);
-    }
+    } */
     &::-webkit-scrollbar-thumb {
-      background: var(--english-violet);
+      background: var(--white);
       border-radius: 9999px;
     }
-    &::-webkit-scrollbar-thumb:hover {
+    /* &::-webkit-scrollbar-thumb:hover {
       background: var(--english-violet-50);
-    }
+    } */
   }
 
   button {
