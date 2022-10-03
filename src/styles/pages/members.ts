@@ -31,6 +31,8 @@ export const MemberList = styled.div`
     font-size: 3rem;
     line-height: 100%;
 
+    color: var(--white);
+
     @media (max-width: 978px) {
       font-size: 2rem;
     }
@@ -43,6 +45,9 @@ export const MemberList = styled.div`
     align-items: center;
 
     width: 100%;
+    max-width: 1400px;
+    padding: 0 1rem;
+
     gap: 1rem;
 
     > a {
@@ -76,7 +81,7 @@ export const MemberList = styled.div`
         pointer-events: none;
         user-select: none;
 
-        background: var(--brand-yellow);
+        background: var(--white);
       }
 
       .info {
@@ -147,11 +152,11 @@ export const MemberList = styled.div`
       }
 
       &:nth-child(even) {
-        background: #fdfae2;
+        background: #f9f9f9;
       }
 
       &:nth-child(odd) {
-        background: #fdfcec;
+        background: var(--white);
       }
 
       @media (min-width: 768px) {
@@ -162,7 +167,7 @@ export const MemberList = styled.div`
         }
 
         &:hover {
-          border-left: 0.5rem solid var(--brand-yellow);
+          border-left: 0.5rem solid var(--black);
 
           > svg {
             opacity: 1;
@@ -173,7 +178,7 @@ export const MemberList = styled.div`
       @media (max-width: 768px) {
         border-width: 0.25rem 0;
         border-style: solid;
-        border-color: var(--brand-yellow);
+        border-color: var(--black);
         flex-direction: column;
 
         overflow: hidden;
@@ -188,7 +193,7 @@ export const MemberList = styled.div`
           object-fit: cover;
           border-radius: unset;
 
-          background: var(--brand-yellow);
+          background: var(--white);
 
           /* border-bottom: 0.25rem solid var(--brand-yellow); */
           margin-top: -1.5rem;

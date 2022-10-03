@@ -13,6 +13,8 @@ export const ProjectsList = styled.div`
     font-size: 3rem;
     line-height: 100%;
 
+    color: var(--white);
+
     @media (max-width: 978px) {
       font-size: 2rem;
     }
@@ -25,6 +27,9 @@ export const ProjectsList = styled.div`
     align-items: stretch;
 
     width: 100%;
+    max-width: 1400px;
+    padding: 0 1rem;
+
     gap: 1rem;
 
     > a {
@@ -65,7 +70,7 @@ export const ProjectsList = styled.div`
         width: 100%;
 
         padding-bottom: 1rem;
-        border-bottom: 0.1rem solid var(--brand-yellow);
+        border-bottom: 0.1rem solid var(--black);
 
         > h1 {
           display: flex;
@@ -94,7 +99,8 @@ export const ProjectsList = styled.div`
         border-radius: 1rem;
 
         cursor: pointer;
-        background: var(--brand-yellow);
+        background: var(--black);
+        color: var(--white);
       }
 
       .authors {
@@ -121,7 +127,7 @@ export const ProjectsList = styled.div`
             width: 100%;
             max-width: 2.5rem;
 
-            border: 0.1rem solid var(--brand-yellow);
+            border: 0.1rem solid var(--white);
             border-radius: 50%;
 
             pointer-events: none;
@@ -141,8 +147,8 @@ export const ProjectsList = styled.div`
         padding: 0.45rem;
       }
 
-      @media (min-width: 1048px) {
-        background: #fdfcec;
+      @media (min-width: 1015px) {
+        background: var(--white);
         font-weight: 300;
 
         > .info {
@@ -154,7 +160,7 @@ export const ProjectsList = styled.div`
 
         &:nth-child(odd) {
           align-items: flex-start;
-          border-left: 0.5rem solid var(--brand-yellow);
+          border-left: 0.5rem solid var(--black);
 
           > button {
           }
@@ -164,7 +170,7 @@ export const ProjectsList = styled.div`
           align-items: flex-end;
           text-align: right;
 
-          border-right: 0.5rem solid var(--brand-yellow);
+          border-right: 0.5rem solid var(--black);
 
           > .info {
             > h1 {
@@ -182,25 +188,19 @@ export const ProjectsList = styled.div`
         }
 
         &:hover {
-          background: #fdfae2;
+          background: #f9f9f9;
         }
       }
 
-      @media (max-width: 1048px) {
+      @media (max-width: 1015px) {
         border-width: 0.25rem 0;
         border-style: solid;
-        border-color: var(--brand-yellow);
+        border-color: var(--black);
         flex-direction: column;
 
         overflow: hidden;
 
-        &:nth-child(even) {
-          background: #fdfae2;
-        }
-
-        &:nth-child(odd) {
-          background: #fdfcec;
-        }
+        background: var(--white);
 
         > button {
           width: 100%;

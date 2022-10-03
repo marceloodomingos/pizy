@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const revealImage = keyframes`
+  0% {
+    opacity: 0,
+  }
+  100% {
+    opacity: 1,
+  }
+`;
 
 export const UserContainer = styled.div`
   width: 100%;
@@ -22,7 +31,6 @@ export const UserContainer = styled.div`
 
     pointer-events: none;
     user-select: none;
-    z-index: 0;
 
     > img {
       width: 100%;
@@ -34,6 +42,12 @@ export const UserContainer = styled.div`
       pointer-events: none;
       user-select: none;
       z-index: -1;
+
+      animation: ${revealImage} 3s ease;
+
+      @media (max-width: 900px) {
+        margin-top: -10vw;
+      }
     }
   }
 `;
@@ -47,10 +61,9 @@ export const UserProfile = styled.div`
   max-width: 1400px;
 
   margin: 0 auto;
-  padding: 0 1rem;
-  z-index: 2;
+  padding: 1rem;
 
-  gap: 1rem;
+  gap: 4rem;
 
   > .about {
     display: flex;
@@ -58,13 +71,23 @@ export const UserProfile = styled.div`
     align-items: stretch;
 
     gap: 2rem;
+    padding: 1rem;
+
     color: var(--white);
 
+    z-index: 2;
+
     > img {
+      min-width: 250px;
       width: 100%;
       max-width: 250px;
 
+      min-height: 250px;
+      height: 100%;
+      max-height: 250px;
+
       border-radius: 1rem;
+      background: var(--white);
 
       pointer-events: none;
       user-select: none;
@@ -79,6 +102,8 @@ export const UserProfile = styled.div`
       gap: 1rem;
 
       .user {
+        display: flex;
+        flex-direction: column;
         flex: 1;
 
         > span {
@@ -97,6 +122,13 @@ export const UserProfile = styled.div`
             border: 1px solid var(--white);
             border-radius: 1rem;
             color: var(--white);
+
+            cursor: help;
+
+            &:hover {
+              background: var(--white);
+              color: var(--black);
+            }
           }
 
           @media (max-width: 900px) {
@@ -104,7 +136,7 @@ export const UserProfile = styled.div`
             justify-content: center;
 
             font-size: 2rem;
-            gap: 0;
+            gap: 1rem;
           }
         }
 
@@ -115,6 +147,7 @@ export const UserProfile = styled.div`
 
         @media (max-width: 900px) {
           text-align: center;
+          gap: 1rem;
         }
       }
 
@@ -143,15 +176,27 @@ export const UserProfile = styled.div`
             max-height: 1.5rem;
 
             fill: var(--white);
+            transition: var(--transition);
           }
 
           &:hover {
             opacity: 0.5;
+
+            > svg {
+              padding: 0.05rem;
+            }
           }
         }
 
         @media (max-width: 900px) {
           justify-content: center;
+          flex-wrap: wrap;
+
+          gap: 1rem;
+
+          > a {
+            margin: 0 1rem;
+          }
         }
       }
     }
@@ -159,21 +204,31 @@ export const UserProfile = styled.div`
     @media (max-width: 900px) {
       flex-direction: column;
       align-items: center;
+
+      padding: 1rem 0;
     }
   }
 
-  > .github-repos,
-  .participated-projects {
+  > div:not(:first-child) {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     color: var(--white);
 
-    gap: 1rem;
+    gap: 2rem;
+
+    > h1 {
+      font-size: 1.75rem;
+      text-transform: uppercase;
+    }
 
     > ul {
       display: flex;
       flex-wrap: wrap;
+
+      width: 100%;
 
       list-style: none;
       gap: 1rem;
@@ -181,6 +236,8 @@ export const UserProfile = styled.div`
       > li {
         display: flex;
         flex-direction: column;
+
+        width: 100%;
 
         flex: 1 1 500px;
         border: 1px solid var(--white);
@@ -194,7 +251,47 @@ export const UserProfile = styled.div`
           font-weight: bold;
           text-transform: capitalize;
         }
+
+        > ul {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          width: 100%;
+
+          > a {
+            width: 100%;
+            max-width: 2.5rem;
+
+            > img {
+              width: 100%;
+              height: 100%;
+
+              border: 0.1rem solid var(--white);
+              border-radius: 50%;
+
+              pointer-events: none;
+              user-select: none;
+            }
+
+            & + a {
+              margin-left: -0.75rem;
+            }
+
+            &:hover {
+              transform: scale(1.05);
+            }
+          }
+        }
       }
+    }
+
+    > img {
+      width: 100%;
+      max-width: 600px;
+
+      pointer-events: none;
+      user-select: none;
     }
   }
 `;

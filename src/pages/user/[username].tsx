@@ -1,7 +1,9 @@
 import axios from "axios";
+import { exists } from "fs";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import Link from "next/link";
+import Router, { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Header from "~/components/Header";
 import { auth, db } from "~/services/firebase";
@@ -10,134 +12,160 @@ import { UserContainer, UserProfile } from "~/styles/pages/user-page";
 const Members: NextPage = () => {
   const [userData, setUserData] = useState<any | null>([]);
   const [userRepos, setUserRepos] = useState<any | null>([]);
-  const [projects, setProjects] = useState<any | null>([]);
   const [participatedProjects, setParticipatedProjects] = useState<any | null>(
     []
   );
+  const [participatedProjectsInfo, setParticipatedProjectsInfo] = useState<
+    any | null
+  >([]);
   const [user, setUser] = useState<any>();
   const [admin, setAdmin] = useState(false);
   const { query } = useRouter();
 
   useEffect(() => {
     if (query.username) {
-      const getUserData = async () => {
-        await axios
-          .get(`https://api.github.com/users/${query.username}`)
-          .then((response) => setUserData(response.data));
+      const checkMember = async () => {
+        db.collection("users")
+          .get()
+          .then((response) => {
+            const users = response.docs.map((doc) => ({
+              ...doc.data(),
+              id: doc.id,
+            }));
 
-        await axios
-          .get(`https://api.github.com/users/${query.username}/repos`)
-          .then((response) => setUserRepos(response.data));
+            if (users.find((user) => user.id === query.username)) {
+              const getUserData = async () => {
+                await axios
+                  .get(`https://api.github.com/users/${query.username}`)
+                  .then((response) => setUserData(response.data));
+
+                await axios
+                  .get(`https://api.github.com/users/${query.username}/repos`)
+                  .then((response) => setUserRepos(response.data));
+
+                db.collection("projects")
+                  .get()
+                  .then((response) => {
+                    const projects = response.docs.map((doc) => ({
+                      ...doc.data(),
+                      id: doc.id,
+                    }));
+
+                    if (
+                      projects.filter((authors: any) =>
+                        authors.authors.includes(query.username)
+                      )
+                    ) {
+                      setParticipatedProjects(
+                        projects.filter((authors: any) =>
+                          authors.authors.includes(query.username)
+                        )
+                      );
+                    }
+                  });
+              };
+
+              getUserData();
+            } else {
+              Router.push("/members");
+            }
+          });
       };
 
-      getUserData();
+      checkMember();
     }
   }, [query.username]);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        const {
-          displayName,
-          photoURL,
-          uid,
-          email,
-          metadata: { creationTime, lastSignInTime },
-        } = user;
+    if (userData) {
+      const getUserInfo = async () => {
+        const checkRole = await axios.get(
+          `https://api.github.com/orgs/pizygroup/members`
+        );
 
-        const getGitHubData = async () => {
-          const response = await axios.get(
-            `https://api.github.com/user/${
-              user.photoURL
-                .replace("https://avatars.githubusercontent.com/u/", "")
-                .split("?")[0]
-            }`
-          );
+        if (checkRole.data.find((role) => role.login === userData.login)) {
+          setAdmin(true);
+        } else {
+          setAdmin(false);
+        }
+      };
 
-          const data = response.data;
-
-          const checkRole = await axios.get(
-            `https://api.github.com/orgs/pizygroup/members`
-          );
-
-          if (checkRole.data.find((role) => role.login === data.login)) {
-            setAdmin(true);
-
-            setUser({
-              id: uid,
-              username: data.login,
-              name: displayName,
-              avatar: photoURL,
-              bio: data.bio,
-              email,
-              metadata: { creationTime, lastSignInTime },
-              admin: true,
-            });
-          } else {
-            setUser({
-              id: uid,
-              username: data.login,
-              name: displayName,
-              avatar: photoURL,
-              bio: data.bio,
-              email,
-              metadata: { creationTime, lastSignInTime },
-              admin: false,
-            });
-          }
-        };
-
-        getGitHubData();
-      }
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+      getUserInfo();
+    }
+  }, [userData]);
 
   useEffect(() => {
-    db.collection("projects")
-      .get()
-      .then((response) => {
-        setProjects(
-          response.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-        );
+    if (participatedProjects) {
+      const getMembersBio = async () => {
+        const listProjects = await participatedProjects.map(async (project) => {
+          const response: any = await axios({
+            url: project.url,
+          });
 
-        setParticipatedProjects(
-          projects.filter((authors) => authors.authors.includes(query.username))
-        );
-      });
-  }, [query.username]);
+          return {
+            url: project.url,
+            authors: project.authors,
+            name: response.data.name,
+            description: response.data.description,
+            homepage: response.data.homepage,
+            topics: [response.data.topics],
+            stars: response.data.stargazers_count,
+            forks: response.data.forks,
+            watchers: response.data.watchers_count,
+            createdAt: response.data.created_at,
+            updatedAt: response.data.updated_at,
+            pushedAt: response.data.pushed_at,
+          };
+        });
+
+        const listProjectsResults = await Promise.all(listProjects);
+        setParticipatedProjectsInfo(listProjectsResults);
+      };
+
+      getMembersBio();
+    }
+  }, [participatedProjects]);
 
   return (
     <>
       <Head>
-        <title>PIZY · Perfil de {query.username}</title>
+        <title>
+          PIZY · {userData ? `Perfil de ${query.username}` : `Carregando...`}
+        </title>
       </Head>
 
       <Header light absolute />
 
       <main>
-        {userData && admin ? (
+        {userData ? (
           <UserContainer>
             <UserProfile>
               <div className="about">
-                <img src={user.avatar} alt={`${user.username} no GitHub`} />
+                {userData.avatar_url && (
+                  <img
+                    src={userData.avatar_url}
+                    alt={`${userData.login} no GitHub`}
+                  />
+                )}
+
                 <div className="content">
                   <div className="user">
                     <span>
-                      {admin && <b>Admin</b>}
-                      {user.name}
+                      {admin && (
+                        <b title="Admins são membros que fazem parte da equipe PIZY">
+                          Admin
+                        </b>
+                      )}
+                      {userData.name}
                     </span>
-                    <p>{user.bio}</p>
+                    <p>{userData.bio}</p>
                   </div>
                   <ul className="social">
-                    {user.username && (
+                    {userData.login && (
                       <a
                         target="_blank"
-                        href={`https://www.github.com/${user.username}/`}
-                        title={`${user.username} no GitHub`}
+                        href={`https://www.github.com/${userData.login}/`}
+                        title={`${userData.login} no GitHub`}
                       >
                         <svg
                           role="img"
@@ -146,7 +174,7 @@ const Members: NextPage = () => {
                         >
                           <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                         </svg>
-                        <p>{user.username}</p>
+                        <p>{userData.login}</p>
                       </a>
                     )}
 
@@ -154,7 +182,7 @@ const Members: NextPage = () => {
                       <a
                         target="_blank"
                         href={`https://www.twitter.com/${userData.twitter_username}/`}
-                        title={`${user.username} no Twitter`}
+                        title={`${userData.login} no Twitter`}
                       >
                         <svg
                           role="img"
@@ -171,7 +199,7 @@ const Members: NextPage = () => {
                       <a
                         target="_blank"
                         href={`https://${userData.blog}`}
-                        title={`Link externo de ${user.username}`}
+                        title={`Link externo de ${userData.login}`}
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -204,42 +232,66 @@ const Members: NextPage = () => {
                   </ul>
                 </div>
               </div>
-              {participatedProjects && (
+
+              {participatedProjects && participatedProjects.length > 0 && (
                 <div className="participated-projects">
                   <h1>Participou de</h1>
                   <ul>
-                    {JSON.stringify(participatedProjects)}
-                    {/* {participatedProjects?.map((repo) => {
+                    {participatedProjectsInfo?.map((repo) => {
                       return (
                         <li key={repo.id} id={repo.name}>
                           <span>{repo.name}</span>
                           <p>{repo.description}</p>
-                        </li>
-                      );
-                    })} */}
-                  </ul>
-                </div>
-              )}
-
-              {userRepos && (
-                <div className="github-repos">
-                  <h1>Respositórios próprios</h1>
-                  <ul>
-                    {userRepos?.map((repo) => {
-                      return (
-                        <li key={repo.id} id={repo.name}>
-                          <span>{repo.name.replaceAll("-", " ")}</span>
-                          <p>{repo.description}</p>
+                          <span>Autores</span>
+                          <ul>
+                            {repo.authors.map((author) => (
+                              <a href={`/user/${author}`}>
+                                <img
+                                  src={`https://www.github.com/${author}.png`}
+                                />
+                              </a>
+                            ))}
+                          </ul>
                         </li>
                       );
                     })}
                   </ul>
                 </div>
               )}
+
+              {userRepos && userRepos.length > 0 && (
+                <div className="github-repos">
+                  <h1>Respositórios próprios</h1>
+                  <ul>
+                    {userRepos?.map((repo) => {
+                      return (
+                        <li key={repo.id} id={repo.name}>
+                          <span>
+                            {repo.name.replace(/[^0-9a-zA-Z]+/g, " ")}
+                          </span>
+                          {repo.description && <p>{repo.description}</p>}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+
+              <div>
+                <h1>Contribuições do GitHub</h1>
+                <img
+                  src={`https://ghchart.rshah.org/480081/${userData.login}`}
+                />
+              </div>
             </UserProfile>
-            <div className="bg">
-              <img src={user.avatar} alt={`${user.username} no GitHub`} />
-            </div>
+            {userData.avatar_url && (
+              <div className="bg">
+                <img
+                  src={userData.avatar_url}
+                  alt={`${userData.login} no GitHub`}
+                />
+              </div>
+            )}
           </UserContainer>
         ) : (
           <p>Carregando...</p>

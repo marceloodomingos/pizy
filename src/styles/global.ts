@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background: var(--background);
     color: var(--black);
-    overflow: hidden auto;
+    overflow: auto hidden;
 
     &.open {
       height: 100vh;

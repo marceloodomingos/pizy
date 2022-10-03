@@ -1,5 +1,17 @@
 import styled, { keyframes } from "styled-components";
 
+const cardReveal = keyframes`
+  0% {
+    transform: translate(-50%, 100%) rotate(-15deg) scale(0.85);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, 0) rotate(15deg) scale(0.85);
+    opacity: 1;
+  }
+`;
+
 export const Presentation = styled.div`
   display: grid;
   grid-template-columns: 50fr 50fr;
@@ -17,9 +29,22 @@ export const Presentation = styled.div`
     position: absolute;
     bottom: 5rem;
     left: 50%;
-    transform: translateX(-50%) rotate(15deg) scale(0.85);
+
+    animation: ${cardReveal} 3s ease;
+    transform: translate(-50%, 0) rotate(15deg) scale(0.85);
+
+    /* pointer-events: none; */
+    transition: var(--transition);
 
     z-index: 3;
+
+    &:hover {
+      transform: translate(-50%, 0) rotate(15deg) scale(0.835);
+    }
+
+    @media (max-width: 950px) {
+      display: none;
+    }
   }
 
   > img {
@@ -122,6 +147,10 @@ export const Presentation = styled.div`
         }
       }
     }
+
+    @media (max-width: 900px) {
+      margin: 0 2rem;
+    }
   }
 
   .social {
@@ -147,6 +176,10 @@ export const Presentation = styled.div`
       > p {
         opacity: 0.5;
         transition: var(--transition);
+
+        @media (max-width: 650px) {
+          display: none;
+        }
       }
 
       > svg {
@@ -168,8 +201,15 @@ export const Presentation = styled.div`
       }
     }
 
+    @media (max-width: 1400px) {
+      left: 2rem;
+    }
+
     @media (max-width: 900px) {
       justify-content: center;
+
+      left: 50%;
+      transform: translate(-50%);
     }
   }
 

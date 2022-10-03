@@ -55,7 +55,7 @@ const Members: NextPage = ({ membersList }: any) => {
         </title>
       </Head>
 
-      <Header />
+      <Header light />
 
       <main>
         <MemberList>
@@ -75,9 +75,8 @@ const Members: NextPage = ({ membersList }: any) => {
                     <>
                       {userData && (
                         <a
-                          key={user.login}
-                          href={user.html_url}
-                          target="_blank"
+                          key={user.id}
+                          href={`/user/${user.login.toLowerCase()}`}
                         >
                           <img src={`${user.html_url}.png`} alt={user.login} />
                           <div className="info">

@@ -95,13 +95,13 @@ export const HeaderContainer = styled.header<HeaderProps>`
             }
           }
 
-          @media (max-width: 900px) {
+          /* @media (max-width: 900px) {
             text-align: center;
             width: 100%;
 
             opacity: 0;
             transform: translateY(100%);
-          }
+          } */
         }
       }
 
@@ -150,6 +150,8 @@ export const HeaderContainer = styled.header<HeaderProps>`
       }
 
       @media (max-width: 1200px) {
+        justify-content: center;
+
         position: absolute;
         top: 0;
         left: 0;
@@ -190,6 +192,10 @@ export const HeaderContainer = styled.header<HeaderProps>`
             height: 80px;
             transition: 0.5s all ease-out;
           }
+        }
+
+        > div {
+          flex-direction: column;
         }
       }
 

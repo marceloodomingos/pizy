@@ -64,7 +64,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
             `https://api.github.com/orgs/pizygroup/members`
           );
 
-          if (checkRole.data.find((role) => role.login === data.login)) {
+          if (!!checkRole.data.find((role) => role.login === data.login)) {
             setAdmin(true);
 
             setUser({
@@ -77,22 +77,17 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
               metadata: { creationTime, lastSignInTime },
               admin: true,
             });
-          } else {
-            setUser({
-              id: uid,
-              username: data.login,
-              name: displayName,
-              avatar: photoURL,
-              bio: data.bio,
-              email,
-              metadata: { creationTime, lastSignInTime },
-              admin: false,
-            });
           }
 
-          db.collection("users").doc(data.login).set({
+          db.collection("users").doc(data.login.toLowerCase()).set({
+            id: uid,
+            username: data.login,
             name: displayName,
+            avatar: photoURL,
+            bio: data.bio,
+            email,
             admin,
+            metadata: { creationTime, lastSignInTime },
           });
           // .then((userRef) => {
           //   alert(`${userRef}`);

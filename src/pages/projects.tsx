@@ -60,7 +60,7 @@ const Projects: NextPage = () => {
         </title>
       </Head>
 
-      <Header />
+      <Header light />
 
       <main>
         <ProjectsList>
