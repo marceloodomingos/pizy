@@ -43,7 +43,7 @@ export const ProfileCardContainer = styled.div`
         max-height: 3rem;
 
         border-radius: 50%;
-        background: linear-gradient(32.37deg, #ff1074 0%, #2400ff 100%);
+        background: var(--gradient-pink-purple);
 
         padding: 2px;
 

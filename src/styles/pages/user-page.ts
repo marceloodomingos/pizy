@@ -220,6 +220,8 @@ export const UserProfile = styled.div`
     gap: 2rem;
 
     > h1 {
+      width: 100%;
+
       font-size: 1.75rem;
       text-transform: uppercase;
     }
