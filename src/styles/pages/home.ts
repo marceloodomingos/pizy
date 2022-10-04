@@ -240,6 +240,8 @@ export const Presentation = styled.div`
     display: flex;
     flex-direction: column;
 
+    height: 80vh;
+
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -266,6 +268,7 @@ export const OurPurpose = styled.div`
   min-height: 350px;
 
   padding: 0 2rem;
+  position: relative;
 
   background: var(--gradient-pink-purple-black);
 
@@ -324,10 +327,10 @@ export const OurPurpose = styled.div`
   > img {
     position: absolute;
     right: 2rem;
-    bottom: -45%;
+    bottom: -25%;
 
     filter: invert(1);
-    z-index: 1;
+    padding: 1rem;
 
     width: 100%;
     max-width: 150px;
@@ -337,13 +340,13 @@ export const OurPurpose = styled.div`
     pointer-events: none;
     user-select: none;
 
+    z-index: 1;
+
     @media (max-width: 900px) {
       right: unset;
 
       max-width: 100px;
-      bottom: -42.5%;
-
-      padding: 1rem;
+      bottom: -16%;
     }
   }
 
