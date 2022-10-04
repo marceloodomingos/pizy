@@ -26,6 +26,7 @@ export const Variables = css`
     --black-dark-hover: #0b0b0b;
     --black-dark-active: #090908;
     --black-darker: #070706;
+    --black-full: #000000;
 
     --red-light: #ffe7f1;
     --red-light-hover: #ffdbea;

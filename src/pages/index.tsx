@@ -4,6 +4,7 @@ import Head from "next/head";
 import { ArrowRight } from "phosphor-react";
 import { useContext, useEffect, useState } from "react";
 import ProfileCard from "~/components/Cards/Profile";
+import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import AuthContext from "~/contexts/AuthContext";
 import { auth } from "~/services/firebase";
@@ -164,9 +165,15 @@ const Home: NextPage = () => {
           <img src="../../pizy-group-logo-not-filled.png" alt="PIZY Group" />
         </OurPurpose>
 
-        {/* <h1 style={{ textAlign: "center", textTransform: "uppercase" }}>
+        <h1
+          style={{
+            textAlign: "center",
+            textTransform: "uppercase",
+            margin: "5rem 0",
+          }}
+        >
           Diferenciais
-        </h1> */}
+        </h1>
 
         <OurCommunity>
           <div className="container">
@@ -218,6 +225,8 @@ const Home: NextPage = () => {
           />
         </OurCommunity>
       </main>
+
+      <Footer />
     </>
   );
 };

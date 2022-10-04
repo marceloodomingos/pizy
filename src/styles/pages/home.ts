@@ -174,6 +174,10 @@ export const Presentation = styled.div`
       margin: 0 2rem;
       padding: 0;
     }
+
+    @media (max-height: 768px) {
+      padding-top: 80px;
+    }
   }
 
   .social {
@@ -234,13 +238,17 @@ export const Presentation = styled.div`
       left: 50%;
       transform: translate(-50%);
     }
+
+    @media (max-height: 768px) {
+      display: none;
+    }
   }
 
   @media (max-width: 900px) {
     display: flex;
     flex-direction: column;
 
-    height: 80vh;
+    height: calc(100vh - 1rem);
 
     align-content: center;
     justify-content: center;
@@ -250,6 +258,14 @@ export const Presentation = styled.div`
 
     .actions {
       justify-content: center;
+    }
+
+    .content {
+      /* margin-top: -100px; */
+    }
+
+    .social {
+      bottom: 10%;
     }
 
     > img {
@@ -367,6 +383,8 @@ export const OurCommunity = styled.div`
 
   position: relative;
   overflow: hidden;
+
+  border-radius: 100px 100px 0 0;
 
   .container {
     width: 100%;
