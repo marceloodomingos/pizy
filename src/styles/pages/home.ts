@@ -35,6 +35,7 @@ export const Presentation = styled.div`
 
     /* pointer-events: none; */
     transition: var(--transition);
+    cursor: pointer;
 
     z-index: 3;
 
@@ -201,8 +202,14 @@ export const Presentation = styled.div`
       color: var(--white);
 
       > p {
-        opacity: 0.5;
+        color: var(--white-darker);
         transition: var(--transition);
+
+        width: 100%;
+        max-width: 0;
+        opacity: 0;
+
+        visibility: hidden;
 
         @media (max-width: 650px) {
           display: none;
@@ -220,6 +227,10 @@ export const Presentation = styled.div`
       &:hover {
         > p {
           opacity: 1;
+          max-width: unset;
+          color: var(--white);
+
+          visibility: visible;
         }
 
         > svg {
@@ -258,10 +269,6 @@ export const Presentation = styled.div`
 
     .actions {
       justify-content: center;
-    }
-
-    .content {
-      /* margin-top: -100px; */
     }
 
     .social {
@@ -322,7 +329,7 @@ export const OurPurpose = styled.div`
       gap: 1rem;
 
       > p {
-        font-weight: 200;
+        font-weight: 100;
         font-size: 1.25rem;
         line-height: 120%;
 
@@ -381,17 +388,27 @@ export const OurCommunity = styled.div`
   margin: 0 auto;
   padding: 0 2rem;
 
+  background-image: url("../../assets/background/gradients/blue-purple-pink.png");
+  background-size: cover;
+
   position: relative;
   overflow: hidden;
 
-  border-radius: 100px 100px 0 0;
-
   .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     width: 100%;
     max-width: 1400px;
 
+    position: relative;
+
     margin: 0 auto;
     z-index: 1;
+
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
 
     .content {
       display: flex;
@@ -424,7 +441,7 @@ export const OurCommunity = styled.div`
         gap: 2rem;
 
         > p {
-          font-weight: 200;
+          font-weight: 100;
           font-size: 1.25rem;
           line-height: 120%;
 
@@ -474,6 +491,10 @@ export const OurCommunity = styled.div`
 
           fill: var(--white);
         }
+
+        @media (max-width: 900px) {
+          padding: 1rem;
+        }
       }
 
       @media (max-width: 900px) {
@@ -486,61 +507,73 @@ export const OurCommunity = styled.div`
     }
 
     > svg {
-      position: absolute;
-      right: -25%;
-
       width: 100%;
-      max-width: 650px;
+      max-width: 150px;
 
       fill: var(--white);
       mask-image: linear-gradient(
-        270deg,
-        #ffffff 0%,
-        rgba(255, 255, 255, 0) 100%
+        to top,
+        rgba(255, 255, 255, 0) 0%,
+        #ffffff 100%
       );
 
-      @media (max-width: 1300px) {
-        right: -50%;
-      }
-
-      @media (max-width: 1140px) {
-        right: -40%;
-        max-width: 500px;
-      }
+      z-index: 2;
 
       @media (min-width: 900px) {
-        top: 50%;
-        bottom: 50%;
-
-        transform: translate(-50%, -50%);
+        display: none;
       }
 
       @media (max-width: 900px) {
-        top: 15%;
+        position: absolute;
+        top: -20%;
         right: 50%;
         left: 50%;
 
         transform: translate(-50%, 0);
-        max-width: 150px;
+        max-width: 50px;
 
-        mask-image: linear-gradient(
+        /* mask-image: linear-gradient(
           to bottom,
           rgba(255, 255, 255, 0.5) 0%,
           rgba(255, 255, 255, 0) 100%
-        );
+        ); */
+
+        mask-image: unset;
       }
     }
-  }
 
-  > img {
-    position: absolute;
-    top: 0;
-    left: 0;
+    > img#PIZYDiscordServer {
+      position: absolute;
+      right: 1rem;
 
-    width: 100vw;
-    height: 100vh;
+      width: 100%;
+      max-width: 45%;
 
-    z-index: 0;
+      perspective: 1000px;
+      perspective-origin: 50% 50%;
+      transform: scale3d(1, 1, 1) rotateX(3deg) rotateY(-14deg) rotateZ(0deg)
+        translate3d(0px, 0px, 0px) skew(0deg, 0deg);
+
+      filter: invert(8%) sepia(51%) hue-rotate(277deg) brightness(100%)
+        contrast(150%);
+
+      mask-image: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.5) 100%
+      );
+
+      border-radius: 1rem;
+
+      pointer-events: none;
+      user-select: none;
+
+      @media (max-width: 900px) {
+        display: none;
+
+        mask-image: unset;
+      }
+    }
   }
 
   @media (min-width: 900px) {
@@ -550,6 +583,9 @@ export const OurCommunity = styled.div`
   @media (max-width: 900px) {
     min-height: 50vh;
 
-    padding: 10rem 2rem 5rem;
+    padding: 8rem 2rem 5rem;
+    border-radius: 1rem 1rem 0 0;
   }
 `;
+
+export const OurBuildingProcess = styled.div``;

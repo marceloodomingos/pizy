@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const ProfileCardContainer = styled.div`
   display: flex;
 
-  width: 400px;
-  height: 250px;
+  width: 354px;
+  height: 212px;
 
   color: var(--white);
   padding: 1rem;
@@ -99,6 +99,7 @@ export const ProfileCardContainer = styled.div`
 
       > p {
         opacity: 0.5;
+        font-size: 0.85rem;
       }
     }
   }

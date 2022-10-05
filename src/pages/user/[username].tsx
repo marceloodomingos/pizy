@@ -40,8 +40,10 @@ const Members: NextPage = () => {
                   .then((response) => setUserData(response.data));
 
                 await axios
-                  .get(`https://api.github.com/users/${query.username}/repos`)
-                  .then((response) => setUserRepos(response.data));
+                  .get(
+                    `https://api.github.com/search/repositories?q=user:${query.username}&sort=updated`
+                  )
+                  .then((response) => setUserRepos(response.data.items));
 
                 db.collection("projects")
                   .get()
@@ -270,6 +272,14 @@ const Members: NextPage = () => {
                             {repo.name.replace(/[^0-9a-zA-Z]+/g, " ")}
                           </span>
                           {repo.description && <p>{repo.description}</p>}
+                          {repo.homepage && (
+                            <a
+                              href={`https://${repo.homepage}`}
+                              target="_blank"
+                            >
+                              Acessar projeto
+                            </a>
+                          )}
                         </li>
                       );
                     })}

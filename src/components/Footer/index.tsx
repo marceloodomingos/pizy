@@ -1,9 +1,11 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
-import { db } from "~/services/firebase";
+import { auth, db } from "~/services/firebase";
 import { FooterContainer } from "./styles";
 
 export default function Header() {
   const [projects, setProjects] = useState([]);
+  const [gitHubUser, setGitHubUser] = useState<any>([]);
 
   useEffect(() => {
     db.collection("projects")
@@ -18,6 +20,48 @@ export default function Header() {
       });
   }, []);
 
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        const {
+          displayName,
+          photoURL,
+          uid,
+          email,
+          metadata: { creationTime, lastSignInTime },
+        } = user;
+
+        const getGitHubData = async () => {
+          const response = await axios.get(
+            `https://api.github.com/user/${
+              user.photoURL
+                .replace("https://avatars.githubusercontent.com/u/", "")
+                .split("?")[0]
+            }`
+          );
+
+          const data = response.data;
+
+          setGitHubUser({
+            id: uid,
+            username: data.login,
+            name: displayName,
+            avatar: photoURL,
+            email,
+            metadata: { creationTime, lastSignInTime },
+            admin: false,
+          });
+        };
+
+        getGitHubData();
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <FooterContainer>
       <div className="container">
@@ -28,20 +72,22 @@ export default function Header() {
           <div>
             <span>Empresa</span>
             <ul>
-              <a href="/">Sobre nós</a>
-              <a href="/">Por que PIZY?</a>
-              <a href="/">Seja um membro PIZY</a>
-              <a href="/">Patrocinar</a>
+              <a href="/about-us">Sobre nós</a>
+              <a href="/about-us">Por que PIZY?</a>
+              <a href="/signup">Seja PIZY</a>
+              <a href="/sponsor">Apoiar</a>
             </ul>
           </div>
 
           <div>
             <span>Comunidade</span>
             <ul>
-              <a href="/">Blog</a>
-              <a href="/">Discord</a>
-              <a href="/">Doação</a>
-              <a href="/">Explorar</a>
+              <a href="/blog">Blog</a>
+              <a href="https://discord.gg/TW3zMrtjNV" target="_blank">
+                Discord
+              </a>
+              <a href="/donation">Doação</a>
+              <a href="/explore">Explorar</a>
             </ul>
           </div>
 
@@ -49,20 +95,22 @@ export default function Header() {
             <span>Navegação</span>
             <ul>
               <a href="/">Início</a>
-              <a href="/">Projetos</a>
-              <a href="/">Equipe</a>
-              <a href="/">Perfil</a>
+              <a href="/projects">Projetos</a>
+              <a href="/members">Equipe</a>
+              <a href={gitHubUser ? `/user/${gitHubUser.username}` : "signin"}>
+                Perfil
+              </a>
             </ul>
           </div>
 
           <div>
             <span>Suporte</span>
             <ul>
-              <a href="/">Ajuda</a>
-              <a href="/">
+              <a href="/help">Ajuda</a>
+              <a href="/report">
                 Erros e <i>Bugs</i>
               </a>
-              <a href="/">FAQ</a>
+              <a href="/help">FAQ</a>
             </ul>
           </div>
 
@@ -70,7 +118,7 @@ export default function Header() {
             <div>
               <span>Feitos pela PIZY</span>
               <ul>
-                {projects.map((project) => (
+                {projects.slice(0, 4).map((project) => (
                   <a key={project.name} href="/">
                     {project.name}
                   </a>
@@ -128,6 +176,7 @@ export default function Header() {
           <a href="">Política de Privacidade</a>
           <a href="">Política de Reembolso</a>
           <a href="">Termos de Uso e Serviços</a>
+          <a href="">Cookies</a>
         </ul>
         <div>
           <p>

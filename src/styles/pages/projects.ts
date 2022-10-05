@@ -1,5 +1,93 @@
 import styled from "styled-components";
 
+export const ProjectsPresentation = styled.div`
+  width: 100%;
+  height: 100vh;
+
+  background-image: url("../../assets/background/rainbow-prisma.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mask-image: linear-gradient(to top, transparent 0%, black 10%);
+
+  > .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 50%;
+
+    color: var(--white);
+    gap: 2rem;
+
+    padding: 0 2rem;
+    height: 100%;
+
+    > div {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .slogan {
+      width: 100%;
+      max-width: 640px;
+
+      font-weight: 700;
+
+      > span {
+        background: var(--gradient-red-yellow-green-white);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+
+        padding: 0 0.5rem;
+        margin: 0 -0.5rem;
+      }
+
+      @media (min-width: 1200px) {
+        font-size: 5.5rem;
+      }
+
+      @media (max-width: 1200px) {
+        font-size: 4.5rem;
+      }
+
+      @media (max-width: 900px) {
+        font-size: 4rem;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 3rem;
+      }
+    }
+
+    > p {
+      width: 100%;
+      max-width: 640px;
+
+      font-weight: 300;
+    }
+
+    @media (max-width: 900px) {
+      max-width: unset;
+      text-align: center;
+
+      padding: 0 2rem;
+    }
+
+    @media (max-height: 768px) {
+      padding-top: 80px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    background-position: 45% center;
+    background-size: 150vh 100%;
+  }
+`;
+
 export const ProjectsList = styled.div`
   display: flex;
   flex-direction: column;
@@ -8,6 +96,8 @@ export const ProjectsList = styled.div`
 
   text-align: center;
   gap: 3rem;
+
+  padding: 4rem 0;
 
   > h1 {
     font-size: 3rem;

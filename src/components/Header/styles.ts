@@ -62,6 +62,18 @@ export const HeaderContainer = styled.header<HeaderProps>`
 
       z-index: 10;
 
+      > nav {
+        display: flex;
+        flex-direction: column;
+
+        ul {
+          display: flex;
+          gap: 1rem;
+
+          list-style: none;
+        }
+      }
+
       > div {
         display: flex;
         justify-content: center;

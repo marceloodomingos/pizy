@@ -6,7 +6,7 @@ export const Variables = css`
     --font-main: "Roboto", sans-serif;
 
     // Colors
-    --background: #131312;
+    --background: var(--black);
 
     --white: #fff;
     --white-hover: #e6e6e6;

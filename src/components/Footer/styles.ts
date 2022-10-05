@@ -22,6 +22,7 @@ export const FooterContainer = styled.footer`
 
     gap: 2rem;
     width: 100%;
+    max-width: 1400px;
 
     position: relative;
 
@@ -39,23 +40,34 @@ export const FooterContainer = styled.footer`
       flex-direction: column;
 
       height: 100%;
-      gap: 2rem;
+      gap: 1rem;
 
       > a {
-        width: 100%;
-        max-width: 1.5rem;
-        height: 100%;
-        max-height: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 3rem;
+        height: 3rem;
+
+        border-radius: 50%;
+        transition: var(--transition);
 
         svg {
           fill: var(--white);
 
           width: 100%;
           max-width: 1.5rem;
+          height: 100%;
+          max-height: 1.5rem;
+        }
+
+        &:hover {
+          background: var(--black-hover);
         }
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 768px) {
         flex-direction: row;
       }
     }
@@ -73,7 +85,7 @@ export const FooterContainer = styled.footer`
 
       > div {
         display: flex;
-        flex: 1 1 150px;
+        flex: 0 1 150px;
         flex-direction: column;
 
         gap: 1.5rem;
@@ -82,7 +94,8 @@ export const FooterContainer = styled.footer`
         /* min-width: 100px; */
 
         > span {
-          font-size: 1rem;
+          font-size: 0.85rem;
+          letter-spacing: 2px;
           text-transform: uppercase;
           font-weight: 600;
 
@@ -105,7 +118,7 @@ export const FooterContainer = styled.footer`
           }
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
           justify-content: center;
           align-items: center;
 
@@ -113,13 +126,13 @@ export const FooterContainer = styled.footer`
         }
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 768px) {
         flex-wrap: nowrap;
         flex-direction: column;
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -161,10 +174,12 @@ export const FooterContainer = styled.footer`
       display: flex;
       flex-direction: column;
 
-      gap: 1rem;
+      @media (max-width: 900px) {
+        gap: 1rem;
+      }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       font-size: 0.85rem;
     }
   }

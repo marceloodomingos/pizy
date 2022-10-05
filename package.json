@@ -6,6 +6,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-navigation-menu": "^1.0.0",
     "@radix-ui/react-popover": "1.0.0",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",

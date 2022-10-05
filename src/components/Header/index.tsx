@@ -8,6 +8,8 @@ import { auth } from "~/services/firebase";
 import GlassmorphismButton from "../Buttons/Glassmorphism";
 import { HeaderContainer } from "./styles";
 
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+
 interface HeaderProps {
   light?: boolean;
   absolute?: boolean;
@@ -103,6 +105,7 @@ export default function Header(props: HeaderProps) {
         <a id="logo" href="/">
           <img src="../../pizy-group-logo-not-filled.png" alt="PIZY Group" />
         </a>
+
         <ul className={openMenu ? "menu-opened" : null}>
           <div className="links">
             <a href="/" className={currentUrl == "/" ? "active" : ""}>
@@ -130,6 +133,24 @@ export default function Header(props: HeaderProps) {
               Doação
             </a>
           </div>
+
+          {/* <NavigationMenu.Root>
+            <NavigationMenu.List>
+              <NavigationMenu.Item>
+                <NavigationMenu.Trigger>Item one</NavigationMenu.Trigger>
+                <NavigationMenu.Content>
+                  Item one content
+                </NavigationMenu.Content>
+              </NavigationMenu.Item>
+              <NavigationMenu.Item>
+                <NavigationMenu.Trigger>Item two</NavigationMenu.Trigger>
+                <NavigationMenu.Content>
+                  Item two content
+                </NavigationMenu.Content>
+              </NavigationMenu.Item>
+            </NavigationMenu.List>
+            <NavigationMenu.Viewport />
+          </NavigationMenu.Root> */}
 
           <div className="actions">
             {user ? (

@@ -6,14 +6,14 @@ import Header from "~/components/Header";
 import LoadingLemon from "~/components/Loaders/LoadingLemon";
 
 import listLinkProjects from "~/data/projects.json";
-import { ProjectsList } from "~/styles/pages/projects";
+import { ProjectsList, ProjectsPresentation } from "~/styles/pages/projects";
 
 const Projects: NextPage = () => {
   const [projects, setProjects] = useState([]);
   const [projectsScreenshots, setProjectsScreenshots] = useState([]);
 
   useEffect(() => {
-    const getMembersBio = async () => {
+    const getProjects = async () => {
       const listProjects = await listLinkProjects.map(async (project) => {
         const response: any = await axios({
           url: project.url,
@@ -49,7 +49,7 @@ const Projects: NextPage = () => {
       // getScreenshot();
     };
 
-    getMembersBio();
+    getProjects();
   }, [listLinkProjects]);
 
   return (
@@ -60,9 +60,20 @@ const Projects: NextPage = () => {
         </title>
       </Head>
 
-      <Header light />
+      <Header light absolute />
 
       <main>
+        <ProjectsPresentation>
+          <div className="content">
+            <h1 className="slogan">
+              Sua solução <span>descomplicada</span> aqui.
+            </h1>
+            <p>
+              Projetos que visam facilitar sua vida ou, ao menos, entretê-lo.
+            </p>
+          </div>
+        </ProjectsPresentation>
+
         <ProjectsList>
           <h1>Projetos PIZY</h1>
           {projects ? (
