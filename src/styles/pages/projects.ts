@@ -61,6 +61,10 @@ export const ProjectsPresentation = styled.div`
       @media (max-width: 600px) {
         font-size: 3rem;
       }
+
+      @media (max-width: 500px) {
+        font-size: 2.5rem;
+      }
     }
 
     > p {
@@ -74,17 +78,16 @@ export const ProjectsPresentation = styled.div`
       max-width: unset;
       text-align: center;
 
-      padding: 0 2rem;
-    }
-
-    @media (max-height: 768px) {
-      padding-top: 80px;
+      padding: 100px 2rem 0;
     }
   }
 
   @media (max-width: 900px) {
-    background-position: 45% center;
-    background-size: 150vh 100%;
+    background-position: 15% center;
+    background-size: 200vw 100%;
+
+    height: 85vh;
+    max-height: 650px;
   }
 `;
 
@@ -331,5 +334,9 @@ export const ProjectsList = styled.div`
     @media (max-width: 768px) {
       gap: 1rem;
     }
+  }
+
+  @media (max-width: 900px) {
+    padding: 2rem 0;
   }
 `;

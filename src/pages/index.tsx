@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import ProfileCard from "~/components/Cards/Profile";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
+import LoadingLemon from "~/components/Loaders/LoadingLemon";
 import AuthContext from "~/contexts/AuthContext";
 import { auth } from "~/services/firebase";
 import {

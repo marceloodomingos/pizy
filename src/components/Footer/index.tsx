@@ -70,7 +70,7 @@ export default function Header() {
         </a>
         <div className="links">
           <div>
-            <span>Empresa</span>
+            <span>PIZY Group</span>
             <ul>
               <a href="/about-us">Sobre nós</a>
               <a href="/about-us">Por que PIZY?</a>
@@ -111,6 +111,7 @@ export default function Header() {
                 Erros e <i>Bugs</i>
               </a>
               <a href="/help">FAQ</a>
+              <a href="/contact">Contato</a>
             </ul>
           </div>
 
