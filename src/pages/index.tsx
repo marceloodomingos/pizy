@@ -11,10 +11,11 @@ import LoadingLemon from "~/components/Loaders/LoadingLemon";
 import AuthContext from "~/contexts/AuthContext";
 import { auth } from "~/services/firebase";
 import {
-  OurBuildingProcess,
+  AboutUs,
   OurCommunity,
   OurPurpose,
   Presentation,
+  PurposeAndMembersCircle,
 } from "~/styles/pages/home";
 
 const Home: NextPage = () => {
@@ -156,33 +157,91 @@ const Home: NextPage = () => {
           />
         </Presentation>
 
-        <OurPurpose>
-          <div className="content">
-            <span>Nosso propósito</span>
-            <div>
+        <PurposeAndMembersCircle>
+          <OurPurpose>
+            <div className="content">
+              <span>Nosso propósito</span>
+              <div>
+                <p>
+                  Esperamos, não só cumprir com nosso objetivo, mas suprir suas
+                  expectativas. A <b>PIZY</b> é uma franquia que visa o
+                  aprendizado e a contribuição com todos.
+                </p>
+                <p>
+                  Quanto maior for o conhecimento, melhor e mais inteligente o
+                  mundo será. Decisões mudam histórias. Contamos com sua
+                  colaboração aqui.
+                </p>
+              </div>
+            </div>
+          </OurPurpose>
+        </PurposeAndMembersCircle>
+
+        <AboutUs>
+          <div className="container">
+            <div className="slogan">
+              <span>Você também pode participar</span>
               <p>
-                Esperamos, não só cumprir com nosso objetivo, mas suprir suas
-                expectativas. A <b>PIZY</b> é uma franquia que visa o
-                aprendizado e a contribuição com todos.
-              </p>
-              <p>
-                Quanto maior o conhecimento, melhor e mais inteligente o mundo
-                será. Decisões mudam histórias.
+                Uma comunidade excluisiva para devs júniores, com projetos,
+                feedbacks e muito mais, tudo em um lugar só.
               </p>
             </div>
-          </div>
-          <img src="../../pizy-group-logo-not-filled.png" alt="PIZY Group" />
-        </OurPurpose>
 
-        <h1
-          style={{
-            textAlign: "center",
-            textTransform: "uppercase",
-            margin: "5rem 0",
-          }}
-        >
-          Diferenciais
-        </h1>
+            <div className="cards">
+              <div className="card">
+                <div className="title">
+                  <img src="../../assets/vectors/emojis/star.svg" />
+                  <span>Visibilidade para todos</span>
+                </div>
+
+                <p>
+                  Seus projetos serão avaliados por vários outros
+                  desenvolvedores e podem receber um feedback! Dê o seu melhor
+                  para uma melhor avaliação e uma visibilidade maior.
+                </p>
+              </div>
+
+              <div className="card">
+                <div className="title">
+                  <img src="../../assets/vectors/emojis/glasses.svg" />
+                  <span>Experiências reais de trabalho</span>
+                </div>
+
+                <p>
+                  Com projetos reais, inspirados no dia a dia de uma empresa,
+                  você colabora com outros integrantes para desenvolver
+                  aplicações úteis. Não perca tempo e comece logo!
+                </p>
+              </div>
+
+              <div className="card">
+                <div className="title">
+                  <img src="../../assets/vectors/emojis/explosion.svg" />
+                  <span>Desenvolva suas habilidades</span>
+                </div>
+
+                <p>
+                  Ao decorrer do desenvolvimento dos seus projetos, você poderá
+                  tirar dúvidas com os outros integrantes e implementar soluções
+                  no seu código.
+                </p>
+              </div>
+
+              <div className="card">
+                <div className="title">
+                  <img src="../../assets/vectors/emojis/nerd.svg" />
+                  <span>Você tem o seu espaço</span>
+                </div>
+
+                <p>
+                  Independente do que você tem facilidade ou experiência, os
+                  projetos sempre vão precisar de alguém especial com suas
+                  ideias, com seu jeito ⎯ como você!
+                </p>
+              </div>
+            </div>
+          </div>
+        </AboutUs>
 
         <OurCommunity>
           <div className="container">
@@ -200,10 +259,6 @@ const Home: NextPage = () => {
                   Você pode trocar ideias com outras pessoas e conhecer
                   possíveis futuros parceiros ou companheiros de trabalho, além
                   de poder desenvolver um bom aprendizado.
-                </p>
-
-                <p>
-                  Que tal dar essa chance para a <b>PIZY</b>?
                 </p>
               </div>
 
@@ -233,10 +288,6 @@ const Home: NextPage = () => {
             />
           </div>
         </OurCommunity>
-
-        <OurBuildingProcess>
-          {/* <img src="../../assets/vectors/glassmorphism-card.svg" /> */}
-        </OurBuildingProcess>
       </main>
 
       <Footer />

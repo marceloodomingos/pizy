@@ -281,6 +281,15 @@ export const Presentation = styled.div`
   }
 `;
 
+export const PurposeAndMembersCircle = styled.div`
+  width: 100%;
+  height: 100%;
+  /* min-height: 100vh; */
+
+  background: url("../../assets/background/gradients/blue-purple-pink-normal.png");
+  background-size: 100% 100%;
+`;
+
 export const OurPurpose = styled.div`
   display: flex;
   justify-content: center;
@@ -292,8 +301,6 @@ export const OurPurpose = styled.div`
 
   padding: 0 2rem;
   position: relative;
-
-  background: var(--gradient-pink-purple-black);
 
   .content {
     display: grid;
@@ -329,9 +336,9 @@ export const OurPurpose = styled.div`
       gap: 1rem;
 
       > p {
-        font-weight: 100;
+        font-weight: 200;
         font-size: 1.25rem;
-        line-height: 120%;
+        color: var(--white-dark);
 
         @media (max-width: 900px) {
           font-size: 1rem;
@@ -347,34 +354,141 @@ export const OurPurpose = styled.div`
     }
   }
 
-  > img {
-    position: absolute;
-    right: 2rem;
-    bottom: -25%;
-
-    filter: invert(1);
-    padding: 1rem;
-
-    width: 100%;
-    max-width: 150px;
-
-    object-fit: cover;
-
-    pointer-events: none;
-    user-select: none;
-
-    z-index: 1;
-
-    @media (max-width: 900px) {
-      right: unset;
-
-      max-width: 100px;
-      bottom: -16%;
-    }
-  }
-
   @media (max-width: 900px) {
     padding: 0 1rem;
+  }
+`;
+
+export const AboutUs = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  background: url("../../assets/background/gradients/blue-purple-pink-inverted.png");
+  background-size: 100% 100%;
+
+  position: relative;
+  overflow: hidden;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 1400px;
+
+    position: relative;
+    padding: 4rem 0;
+    gap: 4rem;
+
+    margin: 0 auto;
+    z-index: 1;
+
+    .slogan {
+      display: flex;
+      flex-direction: column;
+
+      width: 100%;
+      max-width: calc(1400px / 2);
+
+      gap: 1rem;
+
+      > span {
+        font-weight: 800;
+        font-size: 3rem;
+        line-height: 100%;
+
+        text-transform: uppercase;
+
+        width: 100%;
+        max-width: 450px;
+
+        @media (max-width: 900px) {
+          font-size: 2rem;
+        }
+      }
+
+      > p {
+        font-weight: 200;
+        font-size: 1.25rem;
+        color: var(--white-dark);
+      }
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+
+      width: 100%;
+      gap: 2rem;
+
+      > .card {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 600px;
+
+        width: 100%;
+
+        background: radial-gradient(
+          90.16% 143.01% at 15.32% 21.04%,
+          rgba(165, 239, 255, 0.2) 0%,
+          rgba(110, 191, 244, 0.0447917) 77.08%,
+          rgba(70, 144, 213, 0) 100%
+        );
+        background-blend-mode: overlay, normal;
+        backdrop-filter: blur(40px);
+        background-size: cover;
+
+        border: 1px solid var(--red);
+        border-radius: 1.5rem;
+
+        gap: 1rem;
+        padding: 2rem;
+
+        cursor: pointer;
+        transition: var(--transition);
+
+        .title {
+          display: flex;
+          align-items: center;
+
+          gap: 1rem;
+
+          > img {
+            width: 100%;
+            max-width: 3rem;
+
+            pointer-events: none;
+            user-select: none;
+          }
+
+          > span {
+            font-weight: bold;
+            font-size: 1.25rem;
+
+            text-transform: uppercase;
+          }
+        }
+
+        > p {
+          font-weight: 100;
+        }
+
+        &:hover {
+          box-shadow: 0 0 0 1.5px var(--red), 0 0 25px 0 var(--red);
+        }
+      }
+    }
   }
 `;
 
@@ -388,8 +502,9 @@ export const OurCommunity = styled.div`
   margin: 0 auto;
   padding: 0 2rem;
 
-  background-image: url("../../assets/background/gradients/blue-purple-pink.png");
-  background-size: cover;
+  background: url("../../assets/background/gradients/blue-purple-pink-bg-2.png"),
+    linear-gradient(to top, black 0%, transparent 50%);
+  background-size: 100% 100%;
 
   position: relative;
   overflow: hidden;
@@ -423,6 +538,9 @@ export const OurCommunity = styled.div`
       z-index: 1;
 
       > h1 {
+        width: 100%;
+        max-width: 350px;
+
         font-weight: 800;
         font-size: 3rem;
         line-height: 100%;
@@ -431,6 +549,7 @@ export const OurCommunity = styled.div`
 
         @media (max-width: 900px) {
           font-size: 2rem;
+          max-width: unset;
         }
       }
 
@@ -441,9 +560,10 @@ export const OurCommunity = styled.div`
         gap: 2rem;
 
         > p {
-          font-weight: 100;
+          font-weight: 200;
           font-size: 1.25rem;
           line-height: 120%;
+          color: var(--white-dark);
 
           @media (max-width: 900px) {
             font-size: 1rem;
@@ -584,8 +704,6 @@ export const OurCommunity = styled.div`
     min-height: 50vh;
 
     padding: 8rem 2rem 5rem;
-    border-radius: 1rem 1rem 0 0;
+    /* border-radius: 1rem 1rem 0 0; */
   }
 `;
-
-export const OurBuildingProcess = styled.div``;
