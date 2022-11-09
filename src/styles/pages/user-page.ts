@@ -238,6 +238,7 @@ export const UserProfile = styled.div`
       > li {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
 
         width: 100%;
 
@@ -282,6 +283,22 @@ export const UserProfile = styled.div`
 
             &:hover {
               transform: scale(1.05);
+            }
+          }
+
+          &.stats {
+            padding-top: 1rem;
+            border-top: 1px solid var(--white);
+            justify-content: space-evenly;
+
+            list-style: none;
+
+            > li {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              gap: 0.5rem;
             }
           }
         }

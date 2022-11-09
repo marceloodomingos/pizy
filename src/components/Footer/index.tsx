@@ -120,7 +120,7 @@ export default function Header() {
               <span>Feitos pela PIZY</span>
               <ul>
                 {projects.slice(0, 4).map((project) => (
-                  <a key={project.name} href="/">
+                  <a key={project.name} href={project.homepage} target="_blank">
                     {project.name}
                   </a>
                 ))}

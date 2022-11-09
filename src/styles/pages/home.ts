@@ -282,12 +282,158 @@ export const Presentation = styled.div`
 `;
 
 export const PurposeAndMembersCircle = styled.div`
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
   height: 100%;
-  /* min-height: 100vh; */
+  /* min-height: 1080px; */
+
+  gap: 5rem;
 
   background: url("../../assets/background/gradients/blue-purple-pink-normal.png");
   background-size: 100% 100%;
+`;
+
+export const MembersSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+
+  margin: 0 auto;
+
+  gap: 2rem;
+  position: relative;
+
+  .container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    min-height: 900px;
+
+    margin: 0 auto;
+
+    .title {
+      display: flex;
+      flex-direction: column;
+
+      width: 100%;
+      max-width: calc(1400px / 2);
+
+      gap: 1rem;
+
+      > span {
+        font-weight: 800;
+        font-size: 3rem;
+        line-height: 100%;
+
+        text-transform: uppercase;
+
+        width: 100%;
+        max-width: 450px;
+
+        @media (max-width: 900px) {
+          font-size: 2rem;
+        }
+      }
+
+      > p {
+        font-weight: 200;
+        font-size: 1.25rem;
+        color: var(--white-dark);
+      }
+    }
+
+    .about-user {
+      display: flex;
+      flex-direction: column;
+
+      gap: 0.5rem;
+
+      .user-name {
+        display: flex;
+        align-items: center;
+
+        gap: 1rem;
+
+        .id {
+          display: flex;
+          align-items: center;
+
+          gap: 0.5rem;
+          font-size: 1.25rem;
+
+          > svg {
+            width: 100%;
+            max-width: 1.5rem;
+            height: 100%;
+            max-height: 1.5rem;
+
+            fill: var(--white);
+          }
+        }
+
+        > p {
+          color: var(--white-darker);
+        }
+      }
+
+      button {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+
+    .obs {
+      color: var(--white-darker);
+    }
+  }
+`;
+
+export const MembersCircle = styled.div`
+  position: relative;
+
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  min-height: 600px;
+
+  > img {
+    /* position: absolute;
+    right: -35%; */
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    pointer-events: none;
+    user-select: none;
+
+    &:before {
+      content: "";
+      width: 100%;
+      max-width: 2rem;
+      height: 100%;
+      max-height: 2rem;
+
+      border: solid black;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+
+      transform: rotate(135deg);
+    }
+  }
 `;
 
 export const OurPurpose = styled.div`
@@ -366,7 +512,7 @@ export const AboutUs = styled.div`
 
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  min-height: 900px;
 
   margin: 0 auto;
   padding: 0 2rem;
@@ -697,7 +843,8 @@ export const OurCommunity = styled.div`
   }
 
   @media (min-width: 900px) {
-    height: 100vh;
+    height: 100%;
+    min-height: 768px;
   }
 
   @media (max-width: 900px) {
