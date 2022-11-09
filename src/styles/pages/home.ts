@@ -84,13 +84,14 @@ export const Presentation = styled.div`
 
     > div {
       width: 100%;
-      max-width: 640px;
+      max-width: 500px;
     }
 
     .slogan {
       width: 100%;
-      max-width: 640px;
+      max-width: 500px;
 
+      font-size: 4rem;
       font-weight: 700;
 
       > span {
@@ -105,18 +106,6 @@ export const Presentation = styled.div`
         margin: 0 -0.5rem;
       }
 
-      @media (min-width: 1200px) {
-        font-size: 5.5rem;
-      }
-
-      @media (max-width: 1200px) {
-        font-size: 4.5rem;
-      }
-
-      @media (max-width: 900px) {
-        font-size: 4rem;
-      }
-
       @media (max-width: 600px) {
         font-size: 3rem;
       }
@@ -124,7 +113,7 @@ export const Presentation = styled.div`
 
     > p {
       width: 100%;
-      max-width: 640px;
+      max-width: 500px;
 
       font-weight: 300;
     }
@@ -185,7 +174,7 @@ export const Presentation = styled.div`
     display: flex;
 
     width: 100%;
-    max-width: 640px;
+    max-width: 500px;
 
     gap: 2rem;
 

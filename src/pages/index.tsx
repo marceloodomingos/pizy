@@ -91,7 +91,7 @@ const Home: NextPage = () => {
               <a href="/donation">Contribuir</a>
             </div>
 
-            <div className="social">
+            {/* <div className="social">
               <a
                 target="_blank"
                 href="https://www.github.com/pizygroup/"
@@ -136,7 +136,7 @@ const Home: NextPage = () => {
                 </svg>
                 <p>pizygroup</p>
               </a>
-            </div>
+            </div> */}
           </div>
 
           {user && (
