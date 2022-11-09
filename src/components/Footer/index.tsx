@@ -1,4 +1,5 @@
 import axios from "axios";
+import { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 import { auth, db } from "~/services/firebase";
 import { FooterContainer } from "./styles";
@@ -6,19 +7,6 @@ import { FooterContainer } from "./styles";
 export default function Header() {
   const [projects, setProjects] = useState([]);
   const [gitHubUser, setGitHubUser] = useState<any>([]);
-
-  useEffect(() => {
-    db.collection("projects")
-      .get()
-      .then((response) => {
-        setProjects(
-          response.docs.map((doc) => ({
-            ...doc.data(),
-            id: doc.id,
-          }))
-        );
-      });
-  }, []);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -60,6 +48,24 @@ export default function Header() {
     return () => {
       unsubscribe();
     };
+  }, []);
+
+  useEffect(() => {
+    try {
+      const projectsDb = async () =>
+        await db
+          .collection("projects")
+          .get()
+          .then((response) => {
+            setProjects(
+              response.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+            );
+          });
+
+      projectsDb();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   return (
@@ -194,3 +200,27 @@ export default function Header() {
     </FooterContainer>
   );
 }
+
+// export const getStaticProps: GetStaticProps = async () => {
+//   let projects = [];
+
+//   try {
+//     await db
+//       .collection("projects")
+//       .get()
+//       .then((response) => {
+//         projects.push(
+//           response.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+//         );
+//       });
+//   } catch (e) {
+//     console.log(e);
+//   }
+
+//   return {
+//     props: {
+//       ProjectsDb: projects,
+//     },
+//     revalidate: 10,
+//   };
+// };

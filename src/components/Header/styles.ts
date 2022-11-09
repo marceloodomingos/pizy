@@ -140,10 +140,11 @@ export const HeaderContainer = styled.header<HeaderProps>`
           height: 100%;
           max-height: 3rem;
 
-          padding: 2px;
+          padding: 0.0625rem;
           border-radius: 50%;
 
           cursor: pointer;
+          transition: var(--transition);
 
           > img {
             width: 100%;
@@ -153,6 +154,10 @@ export const HeaderContainer = styled.header<HeaderProps>`
 
             pointer-events: none;
             user-select: none;
+          }
+
+          &:hover {
+            padding: 0.15rem;
           }
         }
       }
