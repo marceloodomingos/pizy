@@ -115,7 +115,7 @@ export default function Header() {
             </ul>
           </div>
 
-          {projects && (
+          {projects && projects.length > 0 && (
             <div>
               <span>Feitos pela PIZY</span>
               <ul>
