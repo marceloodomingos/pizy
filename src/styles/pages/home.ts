@@ -273,6 +273,7 @@ export const Presentation = styled.div`
 export const PurposeAndMembersCircle = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   width: 100%;
   height: 100%;
@@ -290,100 +291,137 @@ export const MembersSection = styled.div`
   align-items: center;
 
   width: 100%;
-  max-width: 1400px;
-  height: 100%;
 
-  margin: 0 auto;
+  padding: 0 2rem;
 
   gap: 2rem;
   position: relative;
 
-  .container {
+  .wrapper {
+    position: relative;
+
     display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
 
     width: 100%;
     max-width: 1400px;
-    height: 100%;
-    min-height: 900px;
 
     margin: 0 auto;
 
-    .title {
+    .container {
       display: flex;
+      flex: 1;
       flex-direction: column;
+      justify-content: space-evenly;
 
       width: 100%;
-      max-width: calc(1400px / 2);
+      max-width: 1400px;
+      height: 100%;
 
-      gap: 1rem;
+      margin: 0 auto;
 
-      > span {
-        font-weight: 800;
-        font-size: 3rem;
-        line-height: 100%;
-
-        text-transform: uppercase;
+      .title {
+        display: flex;
+        flex-direction: column;
 
         width: 100%;
-        max-width: 450px;
-
-        @media (max-width: 900px) {
-          font-size: 2rem;
-        }
-      }
-
-      > p {
-        font-weight: 200;
-        font-size: 1.25rem;
-        color: var(--white-dark);
-      }
-    }
-
-    .about-user {
-      display: flex;
-      flex-direction: column;
-
-      gap: 0.5rem;
-
-      .user-name {
-        display: flex;
-        align-items: center;
+        max-width: calc(1400px / 2);
 
         gap: 1rem;
 
-        .id {
-          display: flex;
-          align-items: center;
+        > span {
+          font-weight: 800;
+          font-size: 3rem;
+          line-height: 100%;
 
-          gap: 0.5rem;
-          font-size: 1.25rem;
+          text-transform: uppercase;
 
-          > svg {
-            width: 100%;
-            max-width: 1.5rem;
-            height: 100%;
-            max-height: 1.5rem;
+          width: 100%;
+          max-width: 450px;
 
-            fill: var(--white);
+          @media (max-width: 900px) {
+            font-size: 2rem;
           }
         }
 
         > p {
-          color: var(--white-darker);
+          font-weight: 200;
+          font-size: 1.25rem;
+          color: var(--white-dark);
         }
       }
 
-      button {
+      .about-user {
+        display: flex;
+        flex-direction: column;
+
+        gap: 0.5rem;
         width: 100%;
-        max-width: 200px;
+
+        .user-name {
+          display: flex;
+          align-items: center;
+
+          gap: 1rem;
+
+          .id {
+            display: flex;
+            align-items: center;
+
+            gap: 0.5rem;
+            font-size: 1.25rem;
+
+            > svg {
+              width: 100%;
+              max-width: 1.5rem;
+              height: 100%;
+              max-height: 1.5rem;
+
+              fill: var(--white);
+            }
+          }
+
+          > p {
+            color: var(--white-darker);
+          }
+        }
+
+        button {
+          width: 100%;
+          max-width: 200px;
+        }
+      }
+
+      .obs {
+        color: var(--white-darker);
+      }
+
+      @media (min-width: 900px) {
+        min-height: 900px;
+      }
+
+      @media (max-width: 900px) {
+        gap: 1rem;
+
+        .obs {
+          display: none;
+        }
+
+        .about-user {
+          align-items: center;
+
+          position: absolute;
+          top: 85%;
+          left: 50%;
+
+          transform: translate(-50%, -50%);
+        }
       }
     }
 
-    .obs {
-      color: var(--white-darker);
+    @media (max-width: 900px) {
+      flex-direction: column;
     }
   }
 `;
@@ -397,9 +435,6 @@ export const MembersCircle = styled.div`
   min-height: 600px;
 
   > img {
-    /* position: absolute;
-    right: -35%; */
-
     width: 100%;
     height: 100%;
 
@@ -408,20 +443,48 @@ export const MembersCircle = styled.div`
     pointer-events: none;
     user-select: none;
 
-    &:before {
-      content: "";
-      width: 100%;
-      max-width: 2rem;
-      height: 100%;
-      max-height: 2rem;
-
-      border: solid black;
-      border-width: 0 3px 3px 0;
-      display: inline-block;
-      padding: 3px;
-
-      transform: rotate(135deg);
+    @media (min-width: 900px) {
+      &#mobile {
+        display: none;
+      }
     }
+
+    @media (max-width: 900px) {
+      &:not(#mobile) {
+        display: none;
+      }
+
+      &#mobile {
+        width: 100%;
+        min-width: 550px;
+      }
+    }
+  }
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    transform: translate(-50%, -50%) rotate(135deg);
+
+    content: "";
+    border-right: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+
+    width: 16px;
+    height: 16px;
+
+    @media (max-width: 900px) {
+      top: 65%;
+      left: 50%;
+
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+
+  @media (max-width: 900px) {
+    display: flex;
+    justify-content: center;
   }
 `;
 
