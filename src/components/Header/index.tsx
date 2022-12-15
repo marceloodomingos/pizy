@@ -157,7 +157,10 @@ export default function Header(props: HeaderProps) {
               <>
                 <a onClick={handleLogout}>Sair</a>
                 <Link href={`/user/${gitHubUser.username}`}>
-                  <button className="user">
+                  <button
+                    className="user"
+                    title={`Logado como ${gitHubUser.username}.`}
+                  >
                     {user?.avatar ? (
                       <img
                         src={user.avatar}

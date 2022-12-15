@@ -25,109 +25,109 @@ const Members: NextPage = () => {
   const { query } = useRouter();
 
   useEffect(() => {
-    if (query.username) {
-      const checkMember = async () => {
-        db.collection("users")
-          .get()
-          .then((response) => {
-            const users = response.docs.map((doc) => ({
-              ...doc.data(),
-              id: doc.id,
-            }));
+    if (!query.username) return;
 
-            if (users.find((user) => user.id === query.username)) {
-              const getUserData = async () => {
-                await axios
-                  .get(`https://api.github.com/users/${query.username}`)
-                  .then((response) => setUserData(response.data));
+    const checkMember = async () => {
+      db.collection("users")
+        .get()
+        .then((response) => {
+          const users = response.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
 
-                await axios
-                  .get(
-                    `https://api.github.com/search/repositories?q=user:${query.username}&sort=updated`
-                  )
-                  .then((response) => setUserRepos(response.data.items));
+          if (users.find((user) => user.id === query.username)) {
+            const getUserData = async () => {
+              await axios
+                .get(`https://api.github.com/users/${query.username}`)
+                .then((response) => setUserData(response.data));
 
-                db.collection("projects")
-                  .get()
-                  .then((response) => {
-                    const projects = response.docs.map((doc) => ({
-                      ...doc.data(),
-                      id: doc.id,
-                    }));
+              await axios
+                .get(
+                  `https://api.github.com/search/repositories?q=user:${query.username}&sort=updated`
+                )
+                .then((response) => setUserRepos(response.data.items));
 
-                    if (
+              db.collection("projects")
+                .get()
+                .then((response) => {
+                  const projects = response.docs.map((doc) => ({
+                    ...doc.data(),
+                    id: doc.id,
+                  }));
+
+                  if (
+                    projects.filter((authors: any) =>
+                      authors.authors.includes(query.username)
+                    )
+                  ) {
+                    setParticipatedProjects(
                       projects.filter((authors: any) =>
                         authors.authors.includes(query.username)
                       )
-                    ) {
-                      setParticipatedProjects(
-                        projects.filter((authors: any) =>
-                          authors.authors.includes(query.username)
-                        )
-                      );
-                    }
-                  });
-              };
+                    );
+                  }
+                });
+            };
 
-              getUserData();
-            } else {
-              Router.push("/members");
-            }
-          });
-      };
+            getUserData();
+          } else {
+            Router.push("/members");
+          }
+        });
+    };
 
-      checkMember();
-    }
+    checkMember();
   }, [query.username]);
 
   useEffect(() => {
-    if (userData) {
-      const getUserInfo = async () => {
-        const checkRole = await axios.get(
-          `https://api.github.com/orgs/pizygroup/members`
-        );
+    if (!userData) return;
 
-        if (checkRole.data.find((role) => role.login === userData.login)) {
-          setAdmin(true);
-        } else {
-          setAdmin(false);
-        }
-      };
+    const getUserInfo = async () => {
+      const checkRole = await axios.get(
+        `https://api.github.com/orgs/pizygroup/members`
+      );
 
-      getUserInfo();
-    }
+      if (checkRole.data.find((role) => role.login === userData.login)) {
+        setAdmin(true);
+      } else {
+        setAdmin(false);
+      }
+    };
+
+    getUserInfo();
   }, [userData]);
 
   useEffect(() => {
-    if (participatedProjects) {
-      const getMembersBio = async () => {
-        const listProjects = await participatedProjects.map(async (project) => {
-          const response: any = await axios({
-            url: project.url,
-          });
+    if (!participatedProjects) return;
 
-          return {
-            url: project.url,
-            authors: project.authors,
-            name: response.data.name,
-            description: response.data.description,
-            homepage: response.data.homepage,
-            topics: [response.data.topics],
-            stars: response.data.stargazers_count,
-            forks: response.data.forks,
-            watchers: response.data.watchers_count,
-            createdAt: response.data.created_at,
-            updatedAt: response.data.updated_at,
-            pushedAt: response.data.pushed_at,
-          };
+    const getMembersBio = async () => {
+      const listProjects = await participatedProjects.map(async (project) => {
+        const response: any = await axios({
+          url: project.url,
         });
 
-        const listProjectsResults = await Promise.all(listProjects);
-        setParticipatedProjectsInfo(listProjectsResults);
-      };
+        return {
+          url: project.url,
+          authors: project.authors,
+          name: response.data.name,
+          description: response.data.description,
+          homepage: response.data.homepage,
+          topics: [response.data.topics],
+          stars: response.data.stargazers_count,
+          forks: response.data.forks,
+          watchers: response.data.watchers_count,
+          createdAt: response.data.created_at,
+          updatedAt: response.data.updated_at,
+          pushedAt: response.data.pushed_at,
+        };
+      });
 
-      getMembersBio();
-    }
+      const listProjectsResults = await Promise.all(listProjects);
+      setParticipatedProjectsInfo(listProjectsResults);
+    };
+
+    getMembersBio();
   }, [participatedProjects]);
 
   return (
@@ -371,14 +371,14 @@ const Members: NextPage = () => {
               <LoadingLemon />
             )}
 
-            {userData.avatar_url && (
+            {/* {userData.avatar_url && (
               <div className="bg">
                 <img
                   src={userData.avatar_url}
                   alt={`${userData.login} no GitHub`}
                 />
               </div>
-            )}
+            )} */}
           </UserContainer>
         ) : (
           <LoadingLemon />

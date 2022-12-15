@@ -2,7 +2,6 @@ import axios from "axios";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { ArrowRight } from "phosphor-react";
 import { useContext, useEffect, useState } from "react";
 import ProfileCard from "~/components/Cards/Profile";
 import Footer from "~/components/Footer";
@@ -147,16 +146,18 @@ const Home: NextPage = () => {
             </Link>
           )}
 
-          <img
-            id="desktop-image"
-            src="../assets/background/pizy-logo-cromatic.png"
-            alt="PIZY Cromatic"
-          />
-          <img
-            id="mobile-image"
-            src="../assets/background/pizy-logo-cromatic-mobile.png"
-            alt="PIZY Cromatic"
-          />
+          <picture>
+            <source
+              srcSet="../assets/background/pizy-logo-cromatic.png"
+              media="(min-width: 1200px)"
+              type="image/png"
+            />
+            <source
+              srcSet="../assets/background/pizy-logo-cromatic-mobile.png"
+              type="image/png"
+            />
+            <img src="../assets/background/pizy-logo-cromatic-mobile.png" />
+          </picture>
         </Presentation>
 
         <PurposeAndMembersCircle>

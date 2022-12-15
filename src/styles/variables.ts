@@ -6,7 +6,7 @@ export const Variables = css`
     --font-main: "Roboto", sans-serif;
 
     // Colors
-    --background: var(--black);
+    --background: var(--black-dark);
 
     --white: #fff;
     --white-hover: #e6e6e6;
@@ -32,6 +32,7 @@ export const Variables = css`
     --red-light-hover: #ffdbea;
     --red-light-active: #ffb5d4;
     --red: #ff1074;
+    --red50: #ff107450;
     --red-hover: #e60e68;
     --red-active: #cc0d5d;
     --red-dark: #bf0c57;
@@ -43,6 +44,7 @@ export const Variables = css`
     --purple-light-hover: #e4d9fb;
     --purple-light-active: #c8b1f7;
     --purple: #4c03e5;
+    --purple50: #4c03e550;
     --purple-hover: #4403ce;
     --purple-active: #3d02b7;
     --purple-dark: #3902ac;

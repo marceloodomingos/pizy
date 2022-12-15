@@ -19,7 +19,8 @@ export const Presentation = styled.div`
 
   width: 100vw;
   max-width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   padding: 0;
 
   position: relative;
@@ -48,7 +49,7 @@ export const Presentation = styled.div`
     }
   }
 
-  > img {
+  > picture {
     width: 100%;
     height: 100vh;
 
@@ -58,16 +59,15 @@ export const Presentation = styled.div`
 
     mask-image: linear-gradient(to bottom, transparent, 10%, black 20%);
 
-    @media (min-width: 1200px) {
-      &#mobile-image {
-        display: none;
-      }
+    > img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
     }
 
-    @media (max-width: 1200px) {
-      &#desktop-image {
-        display: none;
-      }
+    @media (max-width: 900px) {
+      display: none;
     }
   }
 
@@ -248,7 +248,8 @@ export const Presentation = styled.div`
     display: flex;
     flex-direction: column;
 
-    height: calc(100vh - 1rem);
+    /* height: calc(100vh - 1rem); */
+    padding: 4rem 0;
 
     align-content: center;
     justify-content: center;
