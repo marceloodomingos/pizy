@@ -68,12 +68,15 @@ export default function Header() {
     }
   }, []);
 
+  const year = new Date().getFullYear();
+
   return (
     <FooterContainer>
       <div className="container">
         <a id="logo" href="/">
           <img src="../../pizy-group-logo-not-filled.png" alt="PIZY Group" />
         </a>
+
         <div className="links">
           <div>
             <span>PIZY Group</span>
@@ -134,6 +137,7 @@ export default function Header() {
             </div>
           )}
         </div>
+
         <div className="social">
           <a
             target="_blank"
@@ -176,26 +180,57 @@ export default function Header() {
               <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
             </svg>
           </a>
+
+          <a
+            target="_blank"
+            href="https://discord.gg/TW3zMrtjNV"
+            title="PIZY no Discord"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36">
+              <g>
+                <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" />
+              </g>
+            </svg>
+          </a>
+
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/groups/9249180/"
+            title="PIZY no LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="192"
+              height="192"
+              fill="#000000"
+              viewBox="0 0 256 256"
+            >
+              <rect width="256" height="256" fill="none"></rect>
+              <path d="M212,28H44A16,16,0,0,0,28,44V212a16,16,0,0,0,16,16H212a16,16,0,0,0,16-16V44A16,16,0,0,0,212,28ZM96,176a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0ZM88,92a12,12,0,1,1,12-12A12,12,0,0,1,88,92Zm96,84a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.8-1.8A36,36,0,0,1,184,140Z"></path>
+            </svg>
+          </a>
         </div>
       </div>
       <div className="legal-content">
-        <ul>
-          <a href="">Política de Privacidade</a>
-          <a href="">Política de Reembolso</a>
-          <a href="">Termos de Uso e Serviços</a>
-          <a href="">Cookies</a>
-        </ul>
-        <div>
+        <div className="links">
           <p>
-            © 2022 <b>PIZY Group</b>. Todos os direitos reservados. <b>PIZY</b>,
-            sua logo, seus projetos e seus respectivos logotipos, são de autoria{" "}
-            <b>PIZY Group</b>.
+            © 2022 - {year} <b>PIZY Group</b>.
           </p>
-          <p>
-            Outras marcas e nomes de produtos são marcas registradas de seus
-            respectivos donos.
-          </p>
+
+          <ul>
+            <a href="">Política de Privacidade</a>
+            <a href="">Política de Reembolso</a>
+            <a href="">Termos de Uso e Serviços</a>
+            <a href="">Cookies</a>
+          </ul>
         </div>
+
+        <p>
+          Todos os direitos reservados. <b>PIZY</b>, sua logo, seus projetos e
+          seus respectivos logotipos, são de autoria <b>PIZY Group</b>. Outras
+          marcas e nomes de produtos são marcas registradas de seus respectivos
+          donos.
+        </p>
       </div>
     </FooterContainer>
   );

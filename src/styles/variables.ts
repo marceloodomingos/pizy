@@ -3,10 +3,10 @@ import { css } from "styled-components";
 export const Variables = css`
   :root {
     // Font
-    --font-main: "Roboto", sans-serif;
+    --font-main: "Inter", sans-serif;
 
     // Colors
-    --background: var(--black-dark);
+    --background: var(--black-full);
 
     --white: #fff;
     --white-hover: #e6e6e6;

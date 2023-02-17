@@ -9,6 +9,7 @@
     "@radix-ui/react-navigation-menu": "^1.0.0",
     "@radix-ui/react-popover": "1.0.0",
     "@reduxjs/toolkit": "^1.8.5",
+    "@vercel/analytics": "^0.1.9",
     "axios": "^0.27.2",
     "firebase": "^9.10.0",
     "next": "^12.3.0",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/node": "18.7.16",
     "@types/react": "18.0.19",
+    "eslint": "^8.34.0",
     "typescript": "4.8.3"
   }
 }

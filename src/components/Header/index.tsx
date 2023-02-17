@@ -5,10 +5,10 @@ import { User } from "phosphor-react";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "~/contexts/AuthContext";
 import { auth } from "~/services/firebase";
-import GlassmorphismButton from "../Buttons/Glassmorphism";
 import { HeaderContainer } from "./styles";
 
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import Button from "../Buttons";
 
 interface HeaderProps {
   light?: boolean;
@@ -126,12 +126,6 @@ export default function Header(props: HeaderProps) {
             <a href="/blog" className={currentUrl == "/blog" ? "active" : ""}>
               Blog
             </a>
-            <a
-              href="/donation"
-              className={currentUrl == "/donation" ? "active" : ""}
-            >
-              Doação
-            </a>
           </div>
 
           {/* <NavigationMenu.Root>
@@ -175,7 +169,7 @@ export default function Header(props: HeaderProps) {
             ) : (
               <>
                 <a onClick={handleLoginWithGithub}>
-                  <GlassmorphismButton>Entrar</GlassmorphismButton>
+                  <Button>Entrar</Button>
                 </a>
               </>
             )}

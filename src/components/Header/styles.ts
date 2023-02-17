@@ -13,12 +13,14 @@ export const HeaderContainer = styled.header<HeaderProps>`
   position: ${(props) => props.absolute && "absolute"};
   top: 0;
 
+  background: var(--black-full);
+
   > nav {
     display: flex;
     align-items: center;
 
     width: 100%;
-    max-width: 1650px;
+    max-width: 1200px;
     height: 100%;
     margin: 0 auto;
     padding: 0 1rem;
@@ -119,10 +121,6 @@ export const HeaderContainer = styled.header<HeaderProps>`
 
       .actions {
         gap: 1rem;
-
-        > a {
-          padding: 1rem 3rem;
-        }
 
         > .user {
           display: flex;
@@ -267,7 +265,8 @@ export const HeaderContainer = styled.header<HeaderProps>`
           }
 
           &:last-child {
-            transform: translateY(3px) rotate(0deg);
+            max-width: calc(2rem - 10px);
+            transform: translateY(3px) translateX(5px) rotate(0deg);
           }
         }
       }
@@ -285,7 +284,8 @@ export const HeaderContainer = styled.header<HeaderProps>`
             }
 
             &:last-child {
-              transform: translateY(0) rotate(-45deg);
+              max-width: 2rem;
+              transform: translateY(0) translateX(0) rotate(-45deg);
             }
           }
         }

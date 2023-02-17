@@ -11,7 +11,7 @@ export const FooterContainer = styled.footer`
   min-height: 500px;
 
   gap: 4rem;
-  padding: 4rem 2rem;
+  /* padding: 4rem 2rem; */
 
   background: var(--black-full);
 
@@ -22,7 +22,9 @@ export const FooterContainer = styled.footer`
 
     gap: 2rem;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
+
+    padding: 4rem 1rem;
 
     position: relative;
 
@@ -114,8 +116,8 @@ export const FooterContainer = styled.footer`
             text-decoration: none;
             color: var(--white);
 
-            &:hover {
-              text-decoration: underline;
+            &:not(:hover) {
+              color: var(--white-darker);
             }
           }
         }
@@ -153,37 +155,60 @@ export const FooterContainer = styled.footer`
   }
 
   > .legal-content {
+    --background-color: #111;
+
     display: flex;
     flex-direction: column;
 
+    width: 100%;
+    max-width: 1200px;
+
+    padding: 2rem 1rem;
     gap: 2rem;
 
-    text-align: center;
+    color: var(--white-darker);
+    background: var(--background-color);
+    box-shadow: 0 0 0 100vmax var(--background-color);
+    clip-path: inset(0 -100vmax);
 
-    > ul {
+    > .links {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
 
-      gap: 1rem;
+      width: 100%;
 
-      > a {
-        text-decoration: none;
-        color: var(--white-darker);
+      > ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        &:hover {
-          color: var(--white-dark-active);
+        gap: 1rem;
+
+        > a {
+          text-decoration: none;
+          color: var(--white-darker);
+
+          &:hover {
+            color: var(--white-dark-active);
+          }
         }
-      }
 
-      @media (max-width: 900px) {
-        flex-wrap: wrap;
+        @media (max-width: 900px) {
+          flex-wrap: wrap;
+        }
       }
     }
 
-    > div {
+    > p {
+      text-align: justify;
+    }
+
+    > div:not(.links) {
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
 
       @media (max-width: 900px) {
         gap: 1rem;
