@@ -9,7 +9,7 @@ import Header from "~/components/Header";
 import LoadingLemon from "~/components/Loaders/LoadingLemon";
 import AuthContext from "~/contexts/AuthContext";
 import { auth } from "~/services/firebase";
-import { HeroSection } from "~/styles/pages/home";
+import { SoonProjectHero } from "~/styles/pages/home";
 
 const Home: NextPage = () => {
   const { user } = useContext(AuthContext);
@@ -66,10 +66,21 @@ const Home: NextPage = () => {
         </title>
       </Head>
 
-      <Header light />
+      {/* <Header light /> */}
 
       <main>
-        <HeroSection>
+        <SoonProjectHero>
+          <div className="container">
+            <div className="logo">
+              <img
+                src="../../pizy-group-logo-not-filled.png"
+                alt="PIZY Group"
+              />
+
+              <div className="blur"></div>
+            </div>
+          </div>
+
           {/* {user && (
             <Link href={`/user/${gitHubUser.username}`}>
               <div className="card">
@@ -77,10 +88,10 @@ const Home: NextPage = () => {
               </div>
             </Link>
           )} */}
-        </HeroSection>
+        </SoonProjectHero>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
