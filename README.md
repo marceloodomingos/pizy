@@ -2,7 +2,7 @@
 
 Estamos aqui para facilitar sua vida. De todas as formas. Esperamos, não só cumprir com nosso objetivo, mas suprir suas expectativas.
 
-# Por que PIZY?
+## Por que PIZY?
 
 Como amamos ajudas as pessoas e nossos projetos seriam de facilitação, usamos a famosa expressão “Easy Peasy Lemon Squeezy” como base.
 
@@ -14,7 +14,28 @@ Mas a que melhor se encaixou na leitura proposital que tínhamos como intuito, f
 
 Tudo em um só lugar. Tudo com a PIZY.
 
-# Membros
+## Contribuir
+
+### Requerimentos
+
+- [node](https://nodejs.org/en/download/) >= 19.6.x
+- [pnpm](https://pnpm.io/installation) >= 7.x
+
+### Dentro do código
+
+1. Instalar as dependências
+
+```bash
+pnpm i
+```
+
+2. Executar as aplicações
+
+```bash
+pnpm dev
+```
+
+## Membros
 
 <table>
   <tr>
