@@ -1,6 +1,6 @@
 {
-  "name": "my-turborepo",
-  "version": "0.0.0",
+  "name": "pizy",
+  "version": "0.0.1",
   "private": true,
   "workspaces": [
     "apps/*",

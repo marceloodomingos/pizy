@@ -1,0 +1,31 @@
+{
+  "name": "@pizy/web",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@radix-ui/react-navigation-menu": "^1.0.0",
+    "@radix-ui/react-popover": "1.0.0",
+    "@reduxjs/toolkit": "^1.8.5",
+    "@vercel/analytics": "^0.1.9",
+    "axios": "^0.27.2",
+    "firebase": "^9.10.0",
+    "next": "^12.3.0",
+    "phosphor-react": "^1.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.4.0",
+    "redux": "^4.2.0",
+    "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "@pizy/tsconfig": "workspace*",
+    "@types/node": "18.7.16",
+    "@types/react": "18.0.19",
+    "typescript": "^4.9.5"
+  }
+}
