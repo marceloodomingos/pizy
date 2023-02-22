@@ -9,48 +9,48 @@ import { SoonProjectHero } from "../styles/pages/home";
 function Home() {
   const [gitHubUser, setGitHubUser] = useState<any>([]);
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if (user) {
-        const {
-          displayName,
-          photoURL,
-          uid,
-          email,
-          metadata: { creationTime, lastSignInTime },
-        } = user;
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged(user => {
+  //     if (user) {
+  //       const {
+  //         displayName,
+  //         photoURL,
+  //         uid,
+  //         email,
+  //         metadata: { creationTime, lastSignInTime },
+  //       } = user;
 
-        const getGitHubData = async () => {
-          const response = await axios.get(
-            `https://api.github.com/user/${
-              user.photoURL
-                .replace("https://avatars.githubusercontent.com/u/", "")
-                .split("?")[0]
-            }`,
-          );
+  //       const getGitHubData = async () => {
+  //         const response = await axios.get(
+  //           `https://api.github.com/user/${
+  //             user.photoURL
+  //               .replace("https://avatars.githubusercontent.com/u/", "")
+  //               .split("?")[0]
+  //           }`,
+  //         );
 
-          const { data } = response;
+  //         const { data } = response;
 
-          setGitHubUser({
-            id: uid,
-            username: data.login,
-            name: displayName,
-            avatar: photoURL,
-            email,
-            bio: data.bio,
-            metadata: { creationTime, lastSignInTime },
-            admin: false,
-          });
-        };
+  //         setGitHubUser({
+  //           id: uid,
+  //           username: data.login,
+  //           name: displayName,
+  //           avatar: photoURL,
+  //           email,
+  //           bio: data.bio,
+  //           metadata: { creationTime, lastSignInTime },
+  //           admin: false,
+  //         });
+  //       };
 
-        getGitHubData();
-      }
-    });
+  //       getGitHubData();
+  //     }
+  //   });
 
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+  //   return () => {
+  //     unsubscribe();
+  //   };
+  // }, []);
 
   return (
     <>

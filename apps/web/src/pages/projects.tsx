@@ -38,7 +38,7 @@ function Projects() {
       );
 
       const listProjectsResults = await Promise.all(listProjects);
-      setProjects(listProjectsResults);
+      // setProjects(listProjectsResults);
 
       // const getScreenshot = async () => {
       //   const projectScreenshot = await fetch(
@@ -78,7 +78,7 @@ function Projects() {
 
         <ProjectsList>
           <h1>Projetos PIZY</h1>
-          {projects ? (
+          {/* {projects ? (
             <ul>
               {projects.map(project => {
                 return (
@@ -91,7 +91,7 @@ function Projects() {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        {/* <img src={projectsScreenshots[index]} /> */}
+                        <img src={projectsScreenshots[index]} />
 
                         <div className="info">
                           <h1>{project.name}</h1>
@@ -124,7 +124,7 @@ function Projects() {
             </ul>
           ) : (
             <LoadingLemon />
-          )}
+          )} */}
         </ProjectsList>
       </main>
     </>

@@ -10,7 +10,7 @@ export const HeaderContainer = styled.header<HeaderProps>`
   height: 100px;
   z-index: 10;
 
-  position: ${(props) => props.absolute && "absolute"};
+  position: ${props => props.absolute && "absolute"};
   top: 0;
 
   background: var(--black-full);
@@ -49,7 +49,7 @@ export const HeaderContainer = styled.header<HeaderProps>`
         pointer-events: none;
         user-select: none;
 
-        filter: ${(props) => props.light && "invert(1)"};
+        filter: ${props => props.light && "invert(1)"};
       }
     }
 
@@ -87,7 +87,7 @@ export const HeaderContainer = styled.header<HeaderProps>`
           align-items: center;
 
           text-decoration: none;
-          color: ${(props) => (props.light ? "var(--white)" : "var(--black)")};
+          color: ${props => (props.light ? "var(--white)" : "var(--black)")};
 
           padding: 1rem 1.5rem;
           border-radius: 0.5rem;
@@ -255,7 +255,7 @@ export const HeaderContainer = styled.header<HeaderProps>`
           max-width: 2rem;
           height: 1px;
 
-          background: ${(props) =>
+          background: ${props =>
             props.light ? "var(--white)" : "var(--black)"};
           transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
           transition-delay: 0s;

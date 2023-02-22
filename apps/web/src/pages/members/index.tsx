@@ -27,18 +27,20 @@ function Members({ membersList }: any) {
 
   useEffect(() => {
     const getMembersBio = async () => {
-      const membersBio = await membersList.map(async member => {
-        const response: any = await axios({
-          url: `https://api.github.com/users/${member.login}`,
-        });
+      const membersBio = await membersList.map(
+        async (member: { login: any; html_url: any }) => {
+          const response: any = await axios({
+            url: `https://api.github.com/users/${member.login}`,
+          });
 
-        return {
-          url: member.html_url,
-          id: response.data.login,
-          name: response.data.name,
-          bio: response.data.bio,
-        };
-      });
+          return {
+            url: member.html_url,
+            id: response.data.login,
+            name: response.data.name,
+            bio: response.data.bio,
+          };
+        },
+      );
 
       const membersBioResults = await Promise.all(membersBio);
       setMembersData(membersBioResults);
@@ -60,7 +62,7 @@ function Members({ membersList }: any) {
       <main>
         <MemberList>
           <h1>Grupo PIZY</h1>
-          {membersList && membersData ? (
+          {/* {membersList && membersData ? (
             <ul>
               {membersList
                 .sort((a, b) => a.id - b.id)
@@ -110,7 +112,9 @@ function Members({ membersList }: any) {
             </ul>
           ) : (
             <LoadingLemon />
-          )}
+          )} */}
+
+          <LoadingLemon />
         </MemberList>
         {/* <WantJoin></WantJoin> */}
       </main>

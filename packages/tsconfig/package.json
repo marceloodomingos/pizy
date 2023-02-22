@@ -1,7 +1,9 @@
 {
   "name": "@pizy/tsconfig",
   "version": "0.0.1",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "base.json",
     "next.json"
