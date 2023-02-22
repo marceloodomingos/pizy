@@ -88,7 +88,11 @@ function Members() {
         `https://api.github.com/orgs/pizygroup/members`,
       );
 
-      if (checkRole.data.find(role => role.login === userData.login)) {
+      if (
+        checkRole.data.find(
+          (role: { login: any }) => role.login === userData.login,
+        )
+      ) {
         setAdmin(true);
       } else {
         setAdmin(false);
@@ -102,26 +106,28 @@ function Members() {
     if (!participatedProjects) return;
 
     const getMembersBio = async () => {
-      const listProjects = await participatedProjects.map(async project => {
-        const response: any = await axios({
-          url: project.url,
-        });
+      const listProjects = await participatedProjects.map(
+        async (project: { url: any; authors: any }) => {
+          const response: any = await axios({
+            url: project.url,
+          });
 
-        return {
-          url: project.url,
-          authors: project.authors,
-          name: response.data.name,
-          description: response.data.description,
-          homepage: response.data.homepage,
-          topics: [response.data.topics],
-          stars: response.data.stargazers_count,
-          forks: response.data.forks,
-          watchers: response.data.watchers_count,
-          createdAt: response.data.created_at,
-          updatedAt: response.data.updated_at,
-          pushedAt: response.data.pushed_at,
-        };
-      });
+          return {
+            url: project.url,
+            authors: project.authors,
+            name: response.data.name,
+            description: response.data.description,
+            homepage: response.data.homepage,
+            topics: [response.data.topics],
+            stars: response.data.stargazers_count,
+            forks: response.data.forks,
+            watchers: response.data.watchers_count,
+            createdAt: response.data.created_at,
+            updatedAt: response.data.updated_at,
+            pushedAt: response.data.pushed_at,
+          };
+        },
+      );
 
       const listProjectsResults = await Promise.all(listProjects);
       setParticipatedProjectsInfo(listProjectsResults);
@@ -141,7 +147,7 @@ function Members() {
       <Header light absolute />
 
       <main>
-        {userData ? (
+        {/* {userData ? (
           <UserContainer>
             {participatedProjects && userRepos && userData ? (
               <UserProfile>
@@ -377,18 +383,20 @@ function Members() {
               <LoadingLemon />
             )}
 
-            {/* {userData.avatar_url && (
+            {userData.avatar_url && (
               <div className="bg">
                 <img
                   src={userData.avatar_url}
                   alt={`${userData.login} no GitHub`}
                 />
               </div>
-            )} */}
+            )}
           </UserContainer>
         ) : (
           <LoadingLemon />
-        )}
+        )} */}
+
+        <LoadingLemon />
       </main>
     </>
   );
