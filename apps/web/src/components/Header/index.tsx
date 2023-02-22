@@ -70,6 +70,8 @@ export default function Header(props: HeaderProps) {
         } = user;
 
         const getGitHubData = async () => {
+          if (!user.photoURL) return;
+
           const response = await axios.get(
             `https://api.github.com/user/${
               user.photoURL
@@ -108,7 +110,7 @@ export default function Header(props: HeaderProps) {
           <img src="../../pizy-group-logo-not-filled.png" alt="PIZY Group" />
         </a>
 
-        <ul className={openMenu ? "menu-opened" : null}>
+        {/* <ul className={openMenu ? "menu-opened" : null}>
           <div className="links">
             <a href="/" className="active">
               Início
@@ -122,9 +124,9 @@ export default function Header(props: HeaderProps) {
             <a href="/blog" className="">
               Blog
             </a>
-          </div>
+          </div> */}
 
-          {/* <NavigationMenu.Root>
+        {/* <NavigationMenu.Root>
             <NavigationMenu.List>
               <NavigationMenu.Item>
                 <NavigationMenu.Trigger>Item one</NavigationMenu.Trigger>
@@ -142,7 +144,7 @@ export default function Header(props: HeaderProps) {
             <NavigationMenu.Viewport />
           </NavigationMenu.Root> */}
 
-          <div className="actions">
+        {/* <div className="actions">
             {user ? (
               <>
                 <a href="https://pizy.vercel.app/" onClick={handleLogout}>
@@ -174,7 +176,7 @@ export default function Header(props: HeaderProps) {
               </a>
             )}
           </div>
-        </ul>
+        </ul> */}
         <button
           type="button"
           className={
