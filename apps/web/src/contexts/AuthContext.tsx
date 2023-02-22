@@ -54,6 +54,8 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
         } = user;
 
         const getGitHubData = async () => {
+          if (!user.photoURL) return;
+
           const response = await axios.get(
             `https://api.github.com/user/${
               user.photoURL
@@ -68,7 +70,11 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
             `https://api.github.com/orgs/pizygroup/members`,
           );
 
-          if (checkRole.data.find(role => role.login === data.login)) {
+          if (
+            checkRole.data.find(
+              (role: { login: any }) => role.login === data.login,
+            )
+          ) {
             setAdmin(true);
 
             setUser({

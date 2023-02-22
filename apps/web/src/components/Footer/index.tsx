@@ -21,6 +21,10 @@ export default function Header() {
         } = user;
 
         const getGitHubData = async () => {
+          if (!user.photoURL) {
+            return;
+          }
+
           const response = await axios.get(
             `https://api.github.com/user/${
               user.photoURL
@@ -51,23 +55,23 @@ export default function Header() {
     };
   }, []);
 
-  useEffect(() => {
-    try {
-      const projectsDb = () =>
-        db
-          .collection("projects")
-          .get()
-          .then(response => {
-            setProjects(
-              response.docs.map(doc => ({ ...doc.data(), id: doc.id })),
-            );
-          });
+  // useEffect(() => {
+  //   try {
+  //     const projectsDb = () =>
+  //       db
+  //         .collection("projects")
+  //         .get()
+  //         .then(response => {
+  //           return setProjects(
+  //             response.docs.map(doc => ({ ...doc.data(), id: doc.id })),
+  //           );
+  //         });
 
-      projectsDb();
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+  //     projectsDb();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
 
   const year = new Date().getFullYear();
 
@@ -132,7 +136,7 @@ export default function Header() {
           {projects && projects.length > 0 && (
             <div>
               <span>Feitos pela PIZY</span>
-              <ul>
+              {/* <ul>
                 {projects.slice(0, 4).map(project => (
                   <a
                     key={project.name}
@@ -143,7 +147,7 @@ export default function Header() {
                     {project.name}
                   </a>
                 ))}
-              </ul>
+              </ul> */}
             </div>
           )}
         </div>

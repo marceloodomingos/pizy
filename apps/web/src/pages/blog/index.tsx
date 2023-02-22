@@ -7,24 +7,24 @@ import LoadingLemon from "../../components/Loaders/LoadingLemon";
 import { db } from "../../services/firebase";
 
 function Blog() {
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const getBlogPosts = async () => {
-      db.collection("posts")
-        .get()
-        .then(response => {
-          setPosts(
-            response.docs.map(doc => ({
-              ...doc.data(),
-              id: doc.id,
-            })),
-          );
-        });
-    };
+  // useEffect(() => {
+  //   const getBlogPosts = async () => {
+  //     db.collection("posts")
+  //       .get()
+  //       .then(response => {
+  //         return setPosts(
+  //           response.docs.map(doc => ({
+  //             ...doc.data(),
+  //             id: doc.id,
+  //           })),
+  //         );
+  //       });
+  //   };
 
-    getBlogPosts();
-  }, []);
+  //   getBlogPosts();
+  // }, []);
 
   return (
     <>
@@ -38,7 +38,7 @@ function Blog() {
 
       <main>
         <h1>Blog</h1>
-        {posts && posts.length > 0 ? (
+        {/* {posts && posts.length > 0 ? (
           posts.map(post => {
             return (
               <div key={post.id}>
@@ -49,7 +49,9 @@ function Blog() {
           })
         ) : (
           <LoadingLemon />
-        )}
+        )} */}
+
+        <LoadingLemon />
       </main>
     </>
   );
