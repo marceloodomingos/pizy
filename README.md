@@ -34,7 +34,6 @@ pnpm i
 ```bash
 pnpm dev
 ```
-
 ## Membros
 
 <table>
