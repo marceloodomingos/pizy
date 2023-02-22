@@ -57,6 +57,20 @@ pnpm dev
 
   <tr>
     <td valign="top">
+      <img src="https://github.com/henriq4.png?size=120" width=120>
+    </td>
+    <td valign="center">
+      <p><b>@henriq4</b><br>Developer</p>
+    </td>
+    <td valign="center">
+      <a href="https://henriquegc.dev" target="_blank"><img src="https://img.shields.io/badge/-henriquegc.dev-black?&style=for-the-badge"></a>
+      <a href="https://www.github.com/henriq4" target="_blank"><img src="https://img.shields.io/badge/GitHub-%23333333.svg?&style=for-the-badge&logo=github&logoColor=white" alt="@Henrique GC on web"></a>
+      <a href="https://www.linkedin.com/in/henriq4" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
       <img src="https://github.com/danielspng.png?size=120" width=120>
     </td>
     <td valign="center">
