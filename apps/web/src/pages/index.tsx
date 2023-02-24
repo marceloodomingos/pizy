@@ -56,7 +56,7 @@ function Home() {
     <>
       <Head>
         <title>
-          PIZY · Estamos aqui para facilitar sua vida. De todas as formas.
+          PIZY Group · Uma nova plataforma para programadores.
         </title>
       </Head>
 

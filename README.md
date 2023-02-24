@@ -1,20 +1,60 @@
-# PIZY GROUP
+!["PIZY Group banner"](https://raw.githubusercontent.com/pizygroup/.github/main/assets/pizygroup-github-banner-v2.png)
 
-Estamos aqui para facilitar sua vida. De todas as formas. Esperamos, não só cumprir com nosso objetivo, mas suprir suas expectativas.
+# Fala dev!
+### Seja muito bem-vindo(a)! 🤗
 
-## Por que PIZY?
+Primeiramente gostaríamos de **agradecer pelo interesse e/ou pela curiosidade** sobre o assunto, isso é muito importante para nós.
 
-Como amamos ajudas as pessoas e nossos projetos seriam de facilitação, usamos a famosa expressão “Easy Peasy Lemon Squeezy” como base.
+Enfim, queremos compartilhar com vocês uma ideia que pode ser muito interessante para quem está começando na área de tecnologia.
 
-Juntamente ao nome, o limão da expressão virou nosso “aliado” e mascote.
+## Conheça mais sobre o projeto
 
-Inúmeras variantes de nomes passaram por nossas ideias, tais como: PZY, PEEZY, PEASY, πzy e entre outras.
+### O que é a PIZY? 🤔
 
-Mas a que melhor se encaixou na leitura proposital que tínhamos como intuito, foi PIZY.
+A **PIZY Group** é uma <ins>plataforma de desenvolvimento digital que busca ajudar iniciantes e pessoas que desejam um futuro de sucesso no mundo da tecnologia</ins>. A plataforma oferece a oportunidade de trabalhar em projetos em larga escala e colaborar com outros usuários, o que pode proporcionar uma valiosa experiência de trabalho.
 
-Tudo em um só lugar. Tudo com a PIZY.
+### Desafios 😜
 
-## Contribuir
+Os desafios propostos pela **PIZY Group** incluem a promoção do trabalho em equipe, a garantia de que os usuários sintam a experiência de um ambiente de trabalho e o incentivo aos usuários a experimentar coisas novas e desafiadoras.
+
+Convidamos vocês a fazerem parte da nossa comunidade e juntarem-se a nós nessa jornada. <ins>Queremos construir uma comunidade vibrante e engajada</ins>, com membros que compartilham ideias, feedbacks e se ajudam mutuamente a alcançar o sucesso: tanto juniores, quanto os mais avançados ou experientes.
+
+[Acessem a nossa comunidade no discord aqui](https://discord.gg/TW3zMrtjNV). 🤗
+
+### Fiquem atentos nas novidades 🤩
+
+Não deixem de seguir a **PIZY Group** nas redes sociais para ficarem atualizados sobre as novidades e compartilharem com seus amigos.
+
+## Esperamos sua colaboração
+
+### Deixem o feedback 💬
+
+Por fim, queremos incentivar vocês a compartilhar essa ideia com seus amigos programadores, empreendedores ou aqueles que estão interessados em começar uma carreira no mundo da tecnologia. A **PIZY Group** valoriza a colaboração e acredita que, juntos, podemos alcançar coisas incríveis. Agradecemos por ler até aqui e mal podemos esperar para ver o que vocês vão criar!
+
+Se vocês tiverem alguma dúvida, feedback ou sugestão, não hesitem em compartilhar conosco nos **comentários abaixo** ou no próprio [GitHub](https://github.com/orgs/pizygroup/discussions/1). 
+
+> **Obs.:** Vamos estar atentos em ambos lugares, aguardamos suas ideias e colaborações.
+
+### Acompanhem o processo ⏳
+
+* Discord: [pizygroup](https://discord.gg/TW3zMrtjNV)
+* GitHub: [@pizygroup](https://github.com/pizygroup)
+* Instagram: [@pizygroup](https://instagram.com/pizygroup/)
+* Twitter: [@pizygroup](https://twitter.com/pizygroup)
+* Facebook: [@pizygroup](https://facebook.com/pizygroup)
+* LinkedIn: [@pizygroup](https://www.linkedin.com/company/pizygroup)
+
+### "Qual o link da plataforma de vocês?" (editado)
+
+Estava no ar a `versão 0.0.0.1`, com um funcionamento base (login e perfil; design antigo), pois as ideias da plataforma ainda não estavam muito bem definidas. No momento, deixamos apenas nosso logotipo para evitar que os usuários vejam "links quebrados"...
+
+Há alguns meses, **estamos trabalhando em cima do que pode ser apresentado à vocês**, porque não queremos começar deixando a desejar. Portanto, **pedimos paciência para conseguirmos fazer uma pesquisa mais avançada** sobre _features_ que seriam legais para estarem presentes na mesma.
+
+**Em breve divulgaremos a caminhada de produção para o desenvolvimento da plataforma, juntamente com algumas telas que fazem parte do design da mesma.**
+
+A plataforma será hospedada em [**pizy.group**](https://pizy.group).
+
+# Contribuição
 
 ### Requerimentos
 
@@ -36,62 +76,9 @@ pnpm dev
 ```
 ## Membros
 
-<table>
-  <tr>
-    <td valign="top">
-      <img src="https://github.com/gelzinn.png?size=120" width=120>
-    </td>
-    <td valign="center">
-      <p><b>@gelzinn</b><br>Designer & Developer</p>
-    </td>
-    <td valign="center">
-      <a href="https://gelzin.com" target="_blank"><img src="https://img.shields.io/badge/-gelzin.com-black?&style=for-the-badge"></a>
-      <a href="https://www.github.com/gelzinn" target="_blank"><img src="https://img.shields.io/badge/GitHub-%23333333.svg?&style=for-the-badge&logo=github&logoColor=white" alt="@gelzinn on GitHub"></a>
-      <a href="https://www.youtube.com/c/gelzinn_" target="_blank"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" target="_blank"></a>
-      <a href="https://instagram.com/gelzinn" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
-      <a href="https://twitter.com/gelzinn_" target="_blank"><img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" target="_blank"></a>
-      <a href="https://www.linkedin.com/in/gelzin" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
-    </td>
-  </tr>
+![https://github.com/gelzinn/pizy/graphs/contributors](https://contributors-img.web.app/image?repo=gelzinn/pizy&max=500)
 
-  <tr>
-    <td valign="top">
-      <img src="https://github.com/henriq4.png?size=120" width=120>
-    </td>
-    <td valign="center">
-      <p><b>@henriq4</b><br>Developer</p>
-    </td>
-    <td valign="center">
-      <a href="https://henriquegc.dev" target="_blank"><img src="https://img.shields.io/badge/-henriquegc.dev-black?&style=for-the-badge"></a>
-      <a href="https://www.github.com/henriq4" target="_blank"><img src="https://img.shields.io/badge/GitHub-%23333333.svg?&style=for-the-badge&logo=github&logoColor=white" alt="@Henrique GC on web"></a>
-      <a href="https://www.linkedin.com/in/henriq4" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
-    </td>
-  </tr>
+---
 
-  <tr>
-    <td valign="top">
-      <img src="https://github.com/danielspng.png?size=120" width=120>
-    </td>
-    <td valign="center">
-      <p><b>@danielspng</b><br>Designer</p>
-    </td>
-    <td valign="center">
-      <a href="https://www.github.com/danielspng" target="_blank"><img src="https://img.shields.io/badge/GitHub-%23333333.svg?&style=for-the-badge&logo=github&logoColor=white" alt="@danielspng on GitHub"></a>
-      <a href="https://www.instagram.com/daniells.png" target="_blank"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white" alt="@daniells.png on Instagram"></a>
-      <a href="https://www.twiiter.com/danielsann0" target="_blank"><img src="https://img.shields.io/badge/Twitter-%231877F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" alt="@danielsann0 on Twitter"></a>
-    </td>
-  </tr>
-
-  <tr>
-    <td valign="top">
-      <img src="https://github.com/luannzin.png?size=120" width=120>
-    </td>
-    <td valign="center">
-      <p><b>@luannzin</b><br>Content creator</p>
-    </td>
-    <td valign="center">
-      <a href="https://www.github.com/luannzin" target="_blank"><img src="https://img.shields.io/badge/GitHub-%23333333.svg?&style=for-the-badge&logo=github&logoColor=white" alt="@luannzin on GitHub"></a>
-      <a href="https://www.instagram.com/__luannzin" target="_blank"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white" alt="@__luannzin on Instagram"></a>
-    </td>
-  </tr>
-</table>
+Muito obrigado pela atenção,
+**Equipe PIZY Group**. 💖
