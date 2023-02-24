@@ -55,9 +55,7 @@ function Home() {
   return (
     <>
       <Head>
-        <title>
-          PIZY Group · Uma nova plataforma para programadores.
-        </title>
+        <title>PIZY Group · Uma nova plataforma para programadores.</title>
       </Head>
 
       {/* <Header light /> */}
