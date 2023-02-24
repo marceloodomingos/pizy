@@ -82,4 +82,3 @@ pnpm dev
 
 Muito obrigado pela atenção,
 **Equipe PIZY Group**. 💖
-
