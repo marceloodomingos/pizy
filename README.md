@@ -45,15 +45,13 @@ Se vocês tiverem alguma dúvida, feedback ou sugestão, não hesitem em compart
 - Facebook: [@pizygroup](https://facebook.com/pizygroup)
 - LinkedIn: [@pizygroup](https://www.linkedin.com/company/pizygroup)
 
-### "Qual o link da plataforma de vocês?" (editado)
-
-Estava no ar a `versão 0.0.0.1`, com um funcionamento base (login e perfil; design antigo), pois as ideias da plataforma ainda não estavam muito bem definidas. No momento, deixamos apenas nosso logotipo para evitar que os usuários vejam "links quebrados"...
+### "Qual o link da plataforma de vocês?"
 
 Há alguns meses, **estamos trabalhando em cima do que pode ser apresentado à vocês**, porque não queremos começar deixando a desejar. Portanto, **pedimos paciência para conseguirmos fazer uma pesquisa mais avançada** sobre _features_ que seriam legais para estarem presentes na mesma.
 
 **Em breve divulgaremos a caminhada de produção para o desenvolvimento da plataforma, juntamente com algumas telas que fazem parte do design da mesma.**
 
-A plataforma será hospedada em [**pizy.group**](https://pizy.group).
+A plataforma está hospedada em [**pizy.group**](https://pizy.group).
 
 # Contribuição
 
