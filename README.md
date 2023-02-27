@@ -1,6 +1,7 @@
 !["PIZY Group banner"](https://raw.githubusercontent.com/pizygroup/.github/main/assets/pizygroup-github-banner-v2.png)
 
 # Fala dev!
+
 ### Seja muito bem-vindo(a)! 🤗
 
 Primeiramente gostaríamos de **agradecer pelo interesse e/ou pela curiosidade** sobre o assunto, isso é muito importante para nós.
@@ -31,49 +32,31 @@ Não deixem de seguir a **PIZY Group** nas redes sociais para ficarem atualizado
 
 Por fim, queremos incentivar vocês a compartilhar essa ideia com seus amigos programadores, empreendedores ou aqueles que estão interessados em começar uma carreira no mundo da tecnologia. A **PIZY Group** valoriza a colaboração e acredita que, juntos, podemos alcançar coisas incríveis. Agradecemos por ler até aqui e mal podemos esperar para ver o que vocês vão criar!
 
-Se vocês tiverem alguma dúvida, feedback ou sugestão, não hesitem em compartilhar conosco nos **comentários abaixo** ou no próprio [GitHub](https://github.com/orgs/pizygroup/discussions/1). 
+Se vocês tiverem alguma dúvida, feedback ou sugestão, não hesitem em compartilhar conosco nos **comentários abaixo** ou no próprio [GitHub](https://github.com/orgs/pizygroup/discussions/1).
 
 > **Obs.:** Vamos estar atentos em ambos lugares, aguardamos suas ideias e colaborações.
 
 ### Acompanhem o processo ⏳
 
-* Discord: [pizygroup](https://discord.gg/TW3zMrtjNV)
-* GitHub: [@pizygroup](https://github.com/pizygroup)
-* Instagram: [@pizygroup](https://instagram.com/pizygroup/)
-* Twitter: [@pizygroup](https://twitter.com/pizygroup)
-* Facebook: [@pizygroup](https://facebook.com/pizygroup)
-* LinkedIn: [@pizygroup](https://www.linkedin.com/company/pizygroup)
+- Discord: [pizygroup](https://discord.gg/TW3zMrtjNV)
+- GitHub: [@pizygroup](https://github.com/pizygroup)
+- Instagram: [@pizygroup](https://instagram.com/pizygroup/)
+- Twitter: [@pizygroup](https://twitter.com/pizygroup)
+- Facebook: [@pizygroup](https://facebook.com/pizygroup)
+- LinkedIn: [@pizygroup](https://www.linkedin.com/company/pizygroup)
 
-### "Qual o link da plataforma de vocês?" (editado)
-
-Estava no ar a `versão 0.0.0.1`, com um funcionamento base (login e perfil; design antigo), pois as ideias da plataforma ainda não estavam muito bem definidas. No momento, deixamos apenas nosso logotipo para evitar que os usuários vejam "links quebrados"...
+### "Qual o link da plataforma de vocês?"
 
 Há alguns meses, **estamos trabalhando em cima do que pode ser apresentado à vocês**, porque não queremos começar deixando a desejar. Portanto, **pedimos paciência para conseguirmos fazer uma pesquisa mais avançada** sobre _features_ que seriam legais para estarem presentes na mesma.
 
 **Em breve divulgaremos a caminhada de produção para o desenvolvimento da plataforma, juntamente com algumas telas que fazem parte do design da mesma.**
 
-A plataforma será hospedada em [**pizy.group**](https://pizy.group).
+A plataforma está hospedada em [**pizy.group**](https://pizy.group).
 
 # Contribuição
 
-### Requerimentos
+Confira nosso [Guia de Contribuição](CONTRIBUTING.md).
 
-- [node](https://nodejs.org/en/download/) >= 19.6.x
-- [pnpm](https://pnpm.io/installation) >= 7.x
-
-### Dentro do código
-
-1. Instalar as dependências
-
-```bash
-pnpm i
-```
-
-2. Executar as aplicações
-
-```bash
-pnpm dev
-```
 ## Membros
 
 ![https://github.com/gelzinn/pizy/graphs/contributors](https://contributors-img.web.app/image?repo=gelzinn/pizy&max=500)
