@@ -10,7 +10,9 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
