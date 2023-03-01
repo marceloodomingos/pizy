@@ -1,17 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-const cardReveal = keyframes`
-  0% {
-    transform: translate(-50%, 100%) rotate(-15deg) scale(0.85);
-    opacity: 70%;
-  }
-
-  100% {
-    transform: translate(-50%, 0) rotate(15deg) scale(0.85);
-    opacity: 100%;
-  }
-`;
-
 const blurGlow = keyframes`
   0% {
     opacity: 0.75;
@@ -99,5 +87,3 @@ export const SoonProjectHero = styled.div`
     }
   }
 `;
-
-export const HeroSection = styled.div``;
